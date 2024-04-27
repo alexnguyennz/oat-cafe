@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .corner {
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+  }
+}
+
+@font-face {
+  font-family: "League Spartan";
+  src: url("/fonts/LeagueSpartan.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "League Gothic";
+  src: url("/fonts/LeagueGothic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "League Spartan", sans-serif;
+  background: linear-gradient(
+          rgba(255, 243, 228, 0.8),
+          rgba(221, 204, 179, 0.4)
+  ), url("/bg.webp") top center/cover no-repeat;
+}
+
+h1 {
+  text-align: center;
+  font-family: "League Gothic", sans-serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 2.25rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+main a:hover, footer a:hover {
+  text-decoration: underline;
+}
+
+address {
+  font-style: normal;
+}

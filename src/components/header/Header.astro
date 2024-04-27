@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+
+import MobileMenu from "./MobileMenu.astro";
+
+import OatUnderline from "./OatUnderline.astro";
+
+import { cn } from "@/lib/utils";
+import { links } from "@/lib/data";
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="z-10 mx-auto mt-4 flex flex-col gap-4">
+  <a
+    href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
+    target="_blank"
+    rel="noreferrer noopener nofollow"
+    class="corner absolute left-0 top-0 size-[8.5rem] bg-black sm:size-36 md:size-48 lg:size-60"
+    ><Image
+      src={import("../../assets/img/akau-tangi.jpg")}
+      width="250"
+      alt="Akau Tangi Sports Centre logo"
+      class="size-20 md:size-28 lg:size-36"
+      loading="eager"
+    /></a
+  >
+
+  <div
+    class="relative z-50 mx-auto flex flex-col items-center justify-center gap-3 rounded-lg"
+  >
+    <a href="/"
+      ><Image
+        src={import("../../assets/img/logo.png")}
+        width="250"
+        alt="Oat Café logo"
+        class="mx-auto w-32"
+        loading="eager"
+      /></a
+    >
+    <nav
+      id="navbar"
+      class="relative hidden rounded-lg bg-accent-yellow bg-opacity-90 px-3 py-2.5 shadow-xl transition duration-200 sm:block"
+    >
+      <ul class="flex items-center gap-2 text-xl">
+        {
+          links.map((link) => (
+            <li class="relative">
+              <a
+                href={link.href}
+                class={cn(
+                  "group relative z-20 inline-flex rounded-lg p-2 font-semibold text-tertiary-red transition-colors hover:text-black",
+                  link.href === "/"
+                    ? pathname === "/" && "rounded-lg text-black"
+                    : pathname.startsWith(link.href) && "rounded-lg text-black",
+                )}
+                data-astro-prefetch
+              >
+                {link.name}
+              </a>
+
+              {link.href === "/"
+                ? pathname === "/" && <OatUnderline />
+                : pathname.startsWith(link.href) && <OatUnderline />}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<MobileMenu />
+
+<style>
+  #navbar {
+    box-shadow:
+      rgba(155, 42, 42, 1) 0px 2px 4px,
+      rgba(155, 42, 42, 0.7) 0px 4px 4px -3px,
+      rgba(155, 42, 42, 0.5) 0px -3px 0px inset;
+  }
+</style>

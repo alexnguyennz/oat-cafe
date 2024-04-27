@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Catering & Functions" orientation="top-right">
+  <h1>Catering & Functions</h1>
+
+  <p>
+    Yellow Seat was founded out of a love of cuisine, our passion for service,
+    and a drive to excel in the industry. We take great pleasure in being able
+    to produce almost any delectable dish you can think of and deliver it with
+    unmatched service.
+  </p>
+
+  <p>
+    We can accommodate all of your catering needs; please <a
+      href="mailto:manager@oatcafe.co.nz">email us</a
+    > your inquiry.
+  </p>
+
+  <a
+    href="https://yellowseat.co.nz"
+    target="_blank"
+    rel="noopener noreferrer nofollow"
+    class="self-center"
+  >
+    <Image
+      src={import("../assets/img/yellowseat.png")}
+      width="750"
+      alt="Yellow Seat"
+      class="w-full max-w-md"
+      loading="eager"
+    /></a
+  >
+
+  <a href="/catering-menu.pdf" class="self-end font-semibold">
+    Our catering menu →
+  </a>
+</Layout>

@@ -1,0 +1,93 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ContactInfo from "@/components/ContactInfo.astro";
+import Label from "@/components/ui/Label.astro";
+import Input from "@/components/ui/Input.astro";
+import Textarea from "@/components/ui/Textarea.astro";
+import Button from "@/components/ui/Button.astro";
+---
+
+<Layout title="Contact" orientation="bottom-left">
+  <h1>Contact Us</h1>
+
+  <p>
+    Join us at Oat Café, where every cup is brewed with love, and every meal is
+    served with a smile.
+  </p>
+
+  <p>
+    We look forward to sharing the joy of good food and great company with you
+    soon.
+  </p>
+
+  <div class="flex flex-col justify-center gap-4 sm:flex-row">
+    <ContactInfo />
+  </div>
+
+  <div class="grid gap-6 md:grid-cols-5">
+    <iframe
+      title="Google Maps location"
+      width="100%"
+      height="400"
+      style="border:0"
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBGMsxMI4yWyst22tFt4MNmlBD9Rn28kXo&q=Akau+Tangi+Sports+Centre"
+      class="rounded-md md:col-span-3"
+      allowfullscreen
+    >
+    </iframe>
+
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      class="mx-auto flex w-full max-w-lg flex-col gap-4 md:col-span-2"
+      data-astro-reload
+    >
+      <div>
+        <Label htmlFor="name" className="required">Name <span>*</span></Label>
+        <Input
+          type="text"
+          id="name"
+          name="name"
+          data-testid="name-input"
+          required
+        />
+      </div>
+
+      <div>
+        <Label htmlFor="email" className="required">Email <span>*</span></Label>
+        <Input
+          type="email"
+          id="email"
+          name="email"
+          data-testid="email-input"
+          required
+        />
+      </div>
+
+      <div>
+        <Label htmlFor="message" className="required"
+          >Message <span>*</span></Label
+        >
+        <Textarea
+          id="message"
+          name="message"
+          rows={4}
+          data-testid="message-textarea"
+          required
+        />
+      </div>
+
+      <Button type="submit" className="self-end" data-testid="submit-button">
+        Get in touch →
+      </Button>
+    </form>
+  </div>
+</Layout>
+
+<style>
+  span {
+    color: red;
+  }
+</style>
