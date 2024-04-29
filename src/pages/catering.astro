@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 
+import { Icon } from "astro-icon/components";
+
 import Layout from "@/layouts/Layout.astro";
 ---
 
@@ -48,9 +50,23 @@ import Layout from "@/layouts/Layout.astro";
     /></a
   >
 
-  <a href="/catering-menu.pdf" class="self-end font-semibold">
-    Our catering menu →
-  </a>
+  <div class="grid justify-items-center gap-6 sm:grid-cols-2">
+    <a
+      href="/catering-menu.pdf"
+      class="h-48 w-72 w-full rounded-xl bg-tertiary-purple bg-[url('/catering.jpg')] bg-cover bg-center bg-no-repeat text-white shadow-xl hover:no-underline"
+    >
+      <h2 class="rounded-t-xl bg-black bg-opacity-80 py-2 text-2xl">
+        Catering Menu
+      </h2>
+    </a>
 
-  <a href="#" class="self-end font-semibold"> Our kids' birthday menu → </a>
+    <a
+      href="/catering-menu.pdf"
+      class="h-48 w-72 w-full rounded-xl bg-accent-red bg-[url('/kids-birthdays.webp')] bg-cover bg-center text-white shadow-xl hover:no-underline"
+    >
+      <h2 class="rounded-t-xl bg-black bg-opacity-80 py-2 text-2xl">
+        Kids' Birthdays Menu
+      </h2>
+    </a>
+  </div>
 </Layout>
