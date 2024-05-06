@@ -15,8 +15,15 @@ export default defineConfig({
     icon({
       iconDir: "src/assets/icons",
       include: {
-        lucide: ["phone", "external-link", "map", "copyright", "corner-right-up"],
+        lucide: [
+          "phone",
+          "external-link",
+          "map",
+          "copyright",
+          "corner-right-up",
+          "clock-8",
+        ],
       },
     }),
-  ]
+  ],
 });
