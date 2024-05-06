@@ -17,8 +17,8 @@ export const links: Link[] = [
     href: "/catering",
   },
   {
-    name: "Bookings",
-    href: "/bookings",
+    name: "Kids Parties",
+    href: "/kids-parties",
   },
   {
     name: "Contact",
