@@ -1,7 +1,7 @@
 ---
 import "@/styles/globals.css";
 
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 import Header from "@/components/header/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -50,7 +50,7 @@ const { title, orientation } = Astro.props;
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="mx-auto flex min-h-screen flex-col text-xl font-light">
     <Header />
@@ -70,9 +70,9 @@ const { title, orientation } = Astro.props;
           linear-gradient(rgba(255, 243, 228, 0.2), rgba(221, 204, 179, 0.2)),
           url("/wood.png") center center/cover no-repeat;
         box-shadow:
-          rgba(0, 0, 0, 1) 0px 2px 4px,
-          rgba(0, 0, 0, 1) 0px 4px 4px -3px,
-          rgba(0, 0, 0, 1) 0px -3px 0px inset;
+          rgba(0, 0, 0, 1) 0px 0px 0px,
+          rgba(0, 0, 0, 1) 0px 1px 0px -1px,
+          rgba(0, 0, 0, 1) 0px -1px 0px inset;
       }
     </style>
   </body>

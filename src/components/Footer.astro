@@ -1,9 +1,13 @@
 ---
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 import ContactInfo from "@/components/ContactInfo.astro";
 import Address from "@/components/Address.astro";
 import OpeningHours from "@/components/OpeningHours.astro";
+
+import facebook from "@/assets/icons/facebook.png";
+import tiktok from "@/assets/icons/tiktok.png";
 ---
 
 <footer class="mt-auto flex justify-center bg-black py-8 text-white">
@@ -13,18 +17,34 @@ import OpeningHours from "@/components/OpeningHours.astro";
     <OpeningHours />
 
     <div class="flex items-center gap-2">
-      <Icon name="lucide:copyright" class="size-5 text-gray-400" />
-      <p class="text-gray-400">
+      <Icon name="lucide:copyright" class="size-5" />
+      <p>
         {new Date().getFullYear()} Oat Café
       </p>
     </div>
 
-    <div class="flex justify-center gap-2">
+    <div class="flex justify-center gap-3">
       <a
         href="https://www.instagram.com/oat.cafe/"
         target="_blank"
         rel="noopener noreferrer nofollow"
         aria-label="Instagram page"><Icon name="instagram" class="size-8" /></a
+      >
+
+      <a
+        href="https://www.facebook.com/OatCafe/"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        aria-label="Facebook page"
+        ><Image src={facebook} alt="Facebook page" class="size-8" /></a
+      >
+
+      <a
+        href="https://www.tiktok.com/@oat.cafe"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        aria-label="TikTok page"
+        ><Image src={tiktok} alt="TikTok page" class="size-8" /></a
       >
     </div>
   </div>
