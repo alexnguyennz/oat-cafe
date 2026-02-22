@@ -2,7 +2,7 @@
   "name": "oat-cafe",
   "author": "Alex Nguyen",
   "type": "module",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -13,11 +13,11 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.astro ."
   },
   "dependencies": {
-    "@astrojs/check": "0.5.10",
-    "@astrojs/sitemap": "3.1.2",
-    "@astrojs/tailwind": "5.1.0",
-    "astro": "4.16.19",
-    "astro-icon": "1.1.0",
+    "@astrojs/check": "0.9.6",
+    "@astrojs/sitemap": "3.7.0",
+    "@astrojs/tailwind": "6.0.2",
+    "astro": "5.17.3",
+    "astro-icon": "1.1.5",
     "clsx": "2.1.0",
     "sharp": "0.33.0",
     "tailwind-merge": "2.2.2",
@@ -25,15 +25,15 @@
     "typescript": "5.4.3"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "1.1.178",
-    "@tailwindcss/typography": "0.5.12",
+    "@iconify-json/lucide": "1.2.93",
+    "@tailwindcss/typography": "0.5.19",
     "@typescript-eslint/parser": "7.4.0",
-    "eslint": "8.57.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-astro": "0.33.1",
-    "eslint-plugin-jsx-a11y": "6.8.0",
+    "eslint": "9.26.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-astro": "1.6.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
     "prettier": "3.2.5",
     "prettier-plugin-astro": "0.13.0",
-    "prettier-plugin-tailwindcss": "0.5.13"
+    "prettier-plugin-tailwindcss": "0.7.2"
   }
 }
