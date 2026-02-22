@@ -22,6 +22,7 @@ export default defineConfig({
           "copyright",
           "corner-right-up",
           "clock-8",
+          "at-sign",
         ],
       },
     }),
