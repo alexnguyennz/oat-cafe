@@ -56,7 +56,7 @@ const { title, orientation } = Astro.props;
     <Header />
 
     <main
-      class="relative mx-5 my-12 flex max-w-2xl flex-col gap-6 self-center rounded-3xl bg-primary-gray bg-opacity-85 p-8 text-black shadow-xl xl:max-w-3xl"
+      class="relative mx-5 my-12 flex max-w-2xl flex-col gap-6 self-center rounded-3xl p-12 text-black xl:max-w-3xl"
     >
       <slot />
 
@@ -66,14 +66,18 @@ const { title, orientation } = Astro.props;
     <Footer />
     <style>
       main {
+        background: url("/wood.png") center center / 100% 100% no-repeat;
+      }
+
+      /*main {
         background:
           linear-gradient(rgba(255, 243, 228, 0.2), rgba(221, 204, 179, 0.2)),
-          url("/wood.png") center center/cover no-repeat;
+          url("/wood-flat.png") center center/cover no-repeat;
         box-shadow:
           rgba(0, 0, 0, 1) 0px 1px 2px,
           rgba(0, 0, 0, 1) 0px 2px 2px -3px,
           rgba(0, 0, 0, 1) 0px 0px 0px inset;
-      }
+      }*/
     </style>
   </body>
 </html>
