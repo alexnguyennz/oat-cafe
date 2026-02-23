@@ -56,7 +56,7 @@ const { title, orientation } = Astro.props;
     <Header />
 
     <main
-      class="relative mx-5 my-12 flex max-w-2xl flex-col gap-6 self-center rounded-3xl p-12 text-black xl:max-w-3xl"
+      class="relative mx-5 my-12 flex max-w-2xl flex-col gap-6 self-center rounded-3xl p-8 text-black shadow-xl xl:max-w-3xl"
     >
       <slot />
 
@@ -66,7 +66,7 @@ const { title, orientation } = Astro.props;
     <Footer />
     <style>
       main {
-        background: url("/wood.png") center center / 100% 100% no-repeat;
+        background: url("/wood-flat.png") center center / 100% 100% no-repeat;
       }
 
       /*main {

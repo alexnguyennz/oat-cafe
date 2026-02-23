@@ -16,9 +16,9 @@ const pathname = Astro.url.pathname;
     href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
     target="_blank"
     rel="noreferrer noopener nofollow"
-    class="corner absolute left-0 top-0 size-[8.5rem] bg-black sm:size-36 md:size-48 lg:size-60"
+    class="corner absolute left-0 top-0 size-[8.5rem] bg-gray-900 sm:size-36 md:size-48 lg:size-60"
     ><Image
-      src={import("../../assets/img/akau-tangi.jpg")}
+      src={import("../../assets/img/akau-tangi.png")}
       width="250"
       alt="Akau Tangi Sports Centre logo"
       class="size-20 md:size-28 lg:size-36"
@@ -40,7 +40,7 @@ const pathname = Astro.url.pathname;
     >
     <nav
       id="navbar"
-      class="relative hidden rounded-lg bg-accent-yellow bg-opacity-90 px-3 py-2.5 shadow-xl transition duration-200 sm:block"
+      class="relative hidden rounded-lg bg-gray-900 bg-opacity-90 px-3 py-2.5 shadow-xl transition duration-200 sm:block"
     >
       <ul class="flex items-center gap-2 text-xl">
         {
@@ -49,10 +49,10 @@ const pathname = Astro.url.pathname;
               <a
                 href={link.href}
                 class={cn(
-                  "group relative z-20 inline-flex rounded-lg p-2 font-semibold text-tertiary-red transition-colors hover:text-black",
+                  "group relative z-20 inline-flex rounded-lg p-2 font-semibold text-gray-400 transition-colors hover:text-white",
                   link.href === "/"
-                    ? pathname === "/" && "rounded-lg text-black"
-                    : pathname.startsWith(link.href) && "rounded-lg text-black",
+                    ? pathname === "/" && "rounded-lg text-white"
+                    : pathname.startsWith(link.href) && "rounded-lg text-white",
                 )}
                 data-astro-prefetch
               >

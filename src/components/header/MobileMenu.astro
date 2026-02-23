@@ -6,7 +6,7 @@ import { links } from "@/lib/data";
 <button
   type="button"
   id="mobile-toggle"
-  class="absolute right-5 top-5 z-30 h-[32px] w-[40px] sm:hidden"
+  class="absolute right-5 top-5 z-30 h-[24px] w-[30px] sm:hidden"
   aria-label="toggle mobile menu"
 >
   {Array.from(Array(3).keys()).map(() => <span />)}
@@ -44,7 +44,7 @@ import { links } from "@/lib/data";
   #mobile-toggle span {
     position: absolute;
     display: block;
-    width: 40px;
+    width: 30px;
     height: 3px;
     background: #1f0e23;
     transform: rotate(0);
@@ -60,12 +60,12 @@ import { links } from "@/lib/data";
   }
 
   #mobile-toggle.open span:nth-child(1) {
-    top: 14px;
+    top: 10px;
     transform: rotate(45deg);
   }
 
   #mobile-toggle span:nth-child(2) {
-    top: 14px;
+    top: 10px;
   }
 
   #mobile-toggle.open span:nth-child(2) {
@@ -73,11 +73,11 @@ import { links } from "@/lib/data";
   }
 
   #mobile-toggle span:nth-child(3) {
-    top: 28px;
+    top: 21px;
   }
 
   #mobile-toggle.open span:nth-child(3) {
-    top: 14px;
+    top: 10px;
     transform: rotate(-45deg);
   }
 </style>
