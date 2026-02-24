@@ -16,12 +16,7 @@ import tiktok from "@/assets/icons/tiktok.png";
     <Address />
     <OpeningHours />
 
-    <div class="flex items-center gap-2">
-      <Icon name="lucide:copyright" class="mb-0.5 size-5" />
-      <p>
-        {new Date().getFullYear()} Oat Café
-      </p>
-    </div>
+    <hr class="border-gray-500" />
 
     <div class="flex justify-center gap-3">
       <a
@@ -51,5 +46,9 @@ import tiktok from "@/assets/icons/tiktok.png";
         ><Image src={tiktok} alt="TikTok page" class="size-8" /></a
       >
     </div>
+
+    <p class="text-center text-base">
+      {new Date().getFullYear()} Oat Café
+    </p>
   </div>
 </footer>

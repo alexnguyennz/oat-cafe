@@ -39,8 +39,7 @@ const pathname = Astro.url.pathname;
       /></a
     >
     <nav
-      id="navbar"
-      class="relative hidden rounded-lg bg-gray-900 bg-opacity-90 px-3 py-2.5 shadow-xl transition duration-200 sm:block"
+      class="relative hidden rounded-3xl bg-accent-red/90 px-3 py-2.5 shadow-xl transition duration-200 sm:block"
     >
       <ul class="flex items-center gap-2 text-xl">
         {
@@ -49,7 +48,7 @@ const pathname = Astro.url.pathname;
               <a
                 href={link.href}
                 class={cn(
-                  "group relative z-20 inline-flex rounded-lg p-2 font-semibold text-gray-400 transition-colors hover:text-white",
+                  "group relative z-20 inline-flex rounded-lg p-2 font-semibold text-gray-200 transition-colors hover:text-white",
                   link.href === "/"
                     ? pathname === "/" && "rounded-lg text-white"
                     : pathname.startsWith(link.href) && "rounded-lg text-white",
@@ -71,12 +70,3 @@ const pathname = Astro.url.pathname;
 </header>
 
 <MobileMenu />
-
-<style>
-  #navbar {
-    box-shadow:
-      rgba(155, 42, 42, 1) 0px 2px 4px,
-      rgba(155, 42, 42, 0.7) 0px 4px 4px -3px,
-      rgba(155, 42, 42, 0.5) 0px -3px 0px inset;
-  }
-</style>
