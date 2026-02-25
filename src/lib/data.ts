@@ -25,6 +25,10 @@ export const links: Link[] = [
     href: "/about",
   },*/
   {
+    name: "Gallery",
+    href: "/gallery",
+  },
+  {
     name: "Partners",
     href: "/partners",
   },
