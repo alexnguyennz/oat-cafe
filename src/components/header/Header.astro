@@ -8,6 +8,8 @@ import OatUnderline from "./OatUnderline.astro";
 import { cn } from "@/lib/utils";
 import { links } from "@/lib/data";
 
+import "animate.css";
+
 const pathname = Astro.url.pathname;
 ---
 
@@ -31,6 +33,7 @@ const pathname = Astro.url.pathname;
   >
     <a href="/"
       ><Image
+        id="logo"
         src={import("../../assets/img/logo.png")}
         width="250"
         alt="Oat Café logo"
@@ -38,6 +41,7 @@ const pathname = Astro.url.pathname;
         loading="eager"
       /></a
     >
+    <!--animate__animated animate__bounceInDown animate__fast-->
     <nav
       class="relative hidden rounded-3xl bg-accent-red/90 px-3 py-2.5 shadow-xl transition duration-200 sm:block"
     >
@@ -48,7 +52,7 @@ const pathname = Astro.url.pathname;
               <a
                 href={link.href}
                 class={cn(
-                  "group relative z-20 inline-flex rounded-lg p-2 font-semibold text-gray-200 transition-colors hover:text-white",
+                  "group relative z-20 inline-flex rounded-lg p-2 font-semibold text-white transition-colors hover:text-white",
                   link.href === "/"
                     ? pathname === "/" && "rounded-lg text-white"
                     : pathname.startsWith(link.href) && "rounded-lg text-white",
@@ -70,3 +74,22 @@ const pathname = Astro.url.pathname;
 </header>
 
 <MobileMenu />
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const logo = document.getElementById("logo");
+    if (!logo) return;
+
+    logo.classList.add(
+      "animate__animated",
+      "animate__bounceInDown",
+      "animate__fast",
+    );
+
+    logo.addEventListener(
+      "animationend",
+      () => (logo.className = "mx-auto w-32"),
+      { once: true },
+    );
+  });
+</script>

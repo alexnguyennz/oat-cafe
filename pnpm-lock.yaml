@@ -17,6 +17,9 @@ importers:
       '@astrojs/tailwind':
         specifier: 6.0.2
         version: 6.0.2(astro@5.18.0(@types/node@20.11.25)(jiti@1.21.0)(rollup@4.50.2)(typescript@5.4.3)(yaml@2.8.2))(tailwindcss@3.4.3)
+      animate.css:
+        specifier: ^4.1.1
+        version: 4.1.1
       astro:
         specifier: 5.18.0
         version: 5.18.0(@types/node@20.11.25)(jiti@1.21.0)(rollup@4.50.2)(typescript@5.4.3)(yaml@2.8.2)
@@ -1163,6 +1166,9 @@ packages:
 
   ajv@8.18.0:
     resolution: {integrity: sha512-PlXPeEWMXMZ7sPYOHqmDyCJzcfNrUr3fGNKtezX14ykXOEIvyK81d+qydx89KY5O71FKMPaQ2vBfBFI5NHR63A==}
+
+  animate.css@4.1.1:
+    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
 
   ansi-align@3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
@@ -4729,6 +4735,8 @@ snapshots:
       fast-uri: 3.1.0
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
+
+  animate.css@4.1.1: {}
 
   ansi-align@3.0.1:
     dependencies:
