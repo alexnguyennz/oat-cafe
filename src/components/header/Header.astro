@@ -8,30 +8,42 @@ import OatUnderline from "./OatUnderline.astro";
 import { cn } from "@/lib/utils";
 import { links } from "@/lib/data";
 
-import "animate.css";
-
 const pathname = Astro.url.pathname;
 ---
 
-<header class="z-10 mx-auto mt-4 flex flex-col gap-4">
-  <a
-    href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
-    target="_blank"
-    rel="noreferrer noopener nofollow"
-    class="corner absolute left-0 top-0 size-[8.5rem] bg-gray-900 sm:size-36 md:size-48 lg:size-60"
-    ><Image
-      src={import("../../assets/img/akau-tangi.png")}
-      width="250"
-      alt="Akau Tangi Sports Centre logo"
-      class="size-20 md:size-28 lg:size-36"
-      loading="eager"
-    /></a
-  >
+<!--<nav
+  class="border-separator bg-background/70 sticky top-0 z-40 w-full border-b backdrop-blur-lg"
+>
+  <header class="flex h-16 items-center justify-between px-6">
+    <div class="flex items-center gap-3">
+      <p class="font-bold">ACME</p>
+    </div>
+    <ul class="flex items-center gap-4">
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Pricing</a></li>
+    </ul>
+  </header>
+</nav>-->{
+  /* With right-aligned content */
+}
 
-  <div
-    class="relative z-50 mx-auto flex flex-col items-center justify-center gap-3 rounded-lg"
-  >
-    <a href="/"
+<header class="font-serif sticky top-0 z-40 w-full bg-black text-white backdrop-blur-lg">
+  <nav class="relative flex h-20 items-center px-5">
+    {pathname === "/" && <a
+      href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
+      target="_blank"
+      rel="noreferrer noopener nofollow"
+      class="corner absolute left-0 top-full size-[8.5rem] bg-black sm:size-36 md:size-48"
+      ><Image
+        src={import("../../assets/img/akau-tangi.png")}
+        width="250"
+        alt="Akau Tangi Sports Centre logo"
+        class="size-20 md:size-24 lg:size-28"
+        loading="eager"
+      /></a
+    >}
+
+    <a href="/" class="bg-black rounded-full size-32"
       ><Image
         id="logo"
         src={import("../../assets/img/logo.png")}
@@ -42,54 +54,37 @@ const pathname = Astro.url.pathname;
       /></a
     >
 
-    <nav
-      class="relative hidden rounded-3xl bg-accent-red/90 px-3 py-2.5 shadow-xl transition duration-200 sm:block"
-    >
-      <ul class="flex items-center gap-2 text-xl">
-        {
-          links.map((link) => (
-            <li class="relative">
-              <a
-                href={link.href}
-                class={cn(
-                  "group relative z-20 inline-flex rounded-lg p-2 font-semibold text-white transition-colors hover:text-white",
-                  link.href === "/"
-                    ? pathname === "/" && "rounded-lg text-white"
-                    : pathname.startsWith(link.href) && "rounded-lg text-white",
-                )}
-                data-astro-prefetch
-              >
-                {link.name}
-              </a>
+    <ul class="absolute left-1/2 flex -translate-x-1/2 gap-2 text-xl">
+      {
+        links.map((link) => (
+          <li class="relative">
+            <a
+              href={link.href}
+              class={cn(
+                "group relative z-20 inline-flex rounded-lg p-2 font-semibold uppercase text-white transition-colors hover:text-white",
+                link.href === "/"
+                  ? pathname === "/" && "underline underline-offset-4 decoration-4"
+                  : pathname.startsWith(link.href) && "underline underline-offset-4 decoration-4",
+              )}
+              data-astro-prefetch
+            >
+              {link.name}
+            </a>
 
-              {link.href === "/"
-                ? pathname === "/" && <OatUnderline />
-                : pathname.startsWith(link.href) && <OatUnderline />}
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-  </div>
+           <!-- {link.href === "/"
+              ? pathname === "/" && <OatUnderline />
+              : pathname.startsWith(link.href) && <OatUnderline />}-->
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </header>
 
 <MobileMenu />
 
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const logo = document.getElementById("logo");
-    if (!logo) return;
-
-    logo.classList.add(
-      "animate__animated",
-      "animate__bounceInDown",
-      "animate__fast",
-    );
-
-    logo.addEventListener(
-      "animationend",
-      () => (logo.className = "mx-auto w-32"),
-      { once: true },
-    );
-  });
-</script>
+<style>
+  .corner {
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+  }
+</style>

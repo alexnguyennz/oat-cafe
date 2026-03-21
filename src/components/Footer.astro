@@ -2,21 +2,23 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
-import ContactInfo from "@/components/ContactInfo.astro";
 import Address from "@/components/Address.astro";
+import ContactInfo from "@/components/ContactInfo.astro";
 
 import facebook from "@/assets/icons/facebook.png";
 import tiktok from "@/assets/icons/tiktok.png";
 ---
 
-<footer class="mt-auto flex justify-center bg-black py-8 font-serif text-white">
+<footer
+  class="mt-auto flex justify-center bg-black py-8 font-serif text-base text-white"
+>
   <div class="flex flex-col items-center gap-3">
     <Image
       id="logo"
       src={import("../assets/img/logo.png")}
-      width="300"
+      width="250"
       alt="Oat Café logo"
-      class="mx-auto w-36"
+      class="mx-auto w-20"
       loading="eager"
     />
 
