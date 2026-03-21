@@ -4,30 +4,27 @@ import { Icon } from "astro-icon/components";
 
 import ContactInfo from "@/components/ContactInfo.astro";
 import Address from "@/components/Address.astro";
-import OpeningHours from "@/components/OpeningHours.astro";
 
 import facebook from "@/assets/icons/facebook.png";
 import tiktok from "@/assets/icons/tiktok.png";
 ---
 
-<footer class="mt-auto flex justify-center bg-gray-900 py-8 text-white">
-  <div class="flex flex-col gap-4">
-    <ContactInfo />
+<footer class="mt-auto flex justify-center bg-black py-8 font-serif text-white">
+  <div class="flex flex-col items-center gap-3">
+    <Image
+      id="logo"
+      src={import("../assets/img/logo.png")}
+      width="300"
+      alt="Oat Café logo"
+      class="mx-auto w-36"
+      loading="eager"
+    />
+
     <Address />
-    <OpeningHours />
 
-    <hr class="border-gray-500" />
+    <ContactInfo />
 
-    <div class="flex justify-center gap-3">
-      <a
-        href="https://www.instagram.com/oat.cafe/"
-        target="_blank"
-        rel="noopener noreferrer nofollow"
-        aria-label="Instagram page"
-        class="duration-300 hover:translate-y-0.5"
-        ><Icon name="instagram" class="size-8" /></a
-      >
-
+    <div class="mt-2 flex justify-center gap-3">
       <a
         href="https://www.facebook.com/OatCafe/"
         target="_blank"
@@ -36,7 +33,14 @@ import tiktok from "@/assets/icons/tiktok.png";
         class="duration-300 hover:translate-y-0.5"
         ><Image src={facebook} alt="Facebook page" class="size-8" /></a
       >
-
+      <a
+        href="https://www.instagram.com/oat.cafe/"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        aria-label="Instagram page"
+        class="duration-300 hover:translate-y-0.5"
+        ><Icon name="instagram" class="size-8" /></a
+      >
       <a
         href="https://www.tiktok.com/@oat.cafe"
         target="_blank"
@@ -46,9 +50,5 @@ import tiktok from "@/assets/icons/tiktok.png";
         ><Image src={tiktok} alt="TikTok page" class="size-8" /></a
       >
     </div>
-
-    <p class="text-center text-base">
-      {new Date().getFullYear()} Oat Café
-    </p>
   </div>
 </footer>

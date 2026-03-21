@@ -7,6 +7,9 @@ module.exports = {
       center: true,
     },
     extend: {
+      fontFamily: {
+        serif: ["var(--font-dm-serif-display)", "serif"],
+      },
       colors: {
         "primary-brown": "#A56C30",
         "primary-gray": "#DDCCB3",
