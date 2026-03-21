@@ -33,7 +33,7 @@ const pathname = Astro.url.pathname;
       href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
       target="_blank"
       rel="noreferrer noopener nofollow"
-      class="corner absolute left-0 top-full size-[8.5rem] bg-black sm:size-36 md:size-48"
+      class="corner absolute left-0 top-full size-[8.5rem] bg-gray-500 sm:size-36 md:size-48"
       ><Image
         src={import("../../assets/img/akau-tangi.png")}
         width="250"
@@ -43,13 +43,13 @@ const pathname = Astro.url.pathname;
       /></a
     >}
 
-    <a href="/" class="bg-black rounded-full size-32"
+    <a href="/"
       ><Image
         id="logo"
         src={import("../../assets/img/logo.png")}
         width="250"
         alt="Oat Café logo"
-        class="mx-auto w-32"
+        class="mx-auto w-24"
         loading="eager"
       /></a
     >
@@ -63,8 +63,8 @@ const pathname = Astro.url.pathname;
               class={cn(
                 "group relative z-20 inline-flex rounded-lg p-2 font-semibold uppercase text-white transition-colors hover:text-white",
                 link.href === "/"
-                  ? pathname === "/" && "underline underline-offset-4 decoration-4"
-                  : pathname.startsWith(link.href) && "underline underline-offset-4 decoration-4",
+                  ? pathname === "/" && "underline underline-offset-4 decoration-2"
+                  : pathname.startsWith(link.href) && "underline underline-offset-4 decoration-2",
               )}
               data-astro-prefetch
             >
