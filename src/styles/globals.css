@@ -1,10 +1,13 @@
 @import "tailwindcss";
+@import "@heroui/styles";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* Theme */
 @theme {
     /* Font */
+    --font-sans: var(--font-league-spartan), sans-serif;
     --font-serif: var(--font-dm-serif-display), serif;
 
     /* Colors */
@@ -20,20 +23,10 @@
     --color-accent-purple: #471651;
 }
 
-/* Plugins */
-@plugin "@tailwindcss/typography";
 
-@font-face {
+/*@font-face {
   font-family: "League Spartan";
   src: url("/fonts/LeagueSpartan.woff2") format("woff2");
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "League Gothic";
-  src: url("/fonts/LeagueGothic.woff2") format("woff2");
-  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -44,15 +37,15 @@
     font-weight: 600;
     font-style: normal;
     font-display: swap;
-}
+}*/
 
 body {
-  font-family: "League Spartan", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   background: url("/pages/home.png") center/cover no-repeat;
 }
 
 h1 {
-  font-family: "Oswald", sans-serif;
+  /*font-family: "Oswald", sans-serif;*/
   text-align: center;
   font-weight: 600;
   font-size: 2rem;
@@ -62,7 +55,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Oswald", sans-serif;
+  /*font-family: "Oswald", sans-serif;*/
   text-align: center;
   font-weight: 600;
   font-size: 1.75rem;

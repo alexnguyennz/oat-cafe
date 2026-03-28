@@ -1,4 +1,5 @@
 import { defineConfig, fontProviders } from "astro/config";
+import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 import tailwindcss from "@tailwindcss/vite";
@@ -10,11 +11,17 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
+      name: "League Spartan",
+      cssVariable: "--font-league-spartan",
+    },
+    {
+      provider: fontProviders.fontsource(),
       name: "Literata",
       cssVariable: "--font-dm-serif-display",
     },
   ],
   integrations: [
+    react(),
     sitemap(),
     icon({
       iconDir: "src/assets/icons",
