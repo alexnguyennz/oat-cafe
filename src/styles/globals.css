@@ -27,10 +27,7 @@
 
 body {
   font-family: "League Spartan", sans-serif;
-  background: linear-gradient(
-          rgba(255, 243, 228, 0.7),
-          rgba(221, 204, 179, 0.3)
-  ), url("/bg.webp") center/cover no-repeat;
+  background: url("/pages/home.png") center/cover no-repeat;
 }
 
 h1 {

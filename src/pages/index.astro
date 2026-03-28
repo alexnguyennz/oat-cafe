@@ -1,46 +1,18 @@
 ---
+import { Image } from "astro:assets";
+
 import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="Home" orientation="bottom-left">
   <div class="space-y-3">
-    <p>
-      Welcome to Oat Café located in the Ākau Tangi Sports Centre in Kilbirnie.
-    </p>
-
-    <p>
-      At Oat Café, we pride ourselves on being more than just a place to grab a
-      quick bite – we are a family-friendly and child-friendly destination where
-      friends gather, and memories are made.
-    </p>
-
-    <p>
-      At Oat Café, you will find real, whole food prepared fresh daily. Our
-      casual atmosphere, quality food, friendly staff, and attentive service are
-      what we have become known for and keeps our customers coming back and back
-      again.
-    </p>
-
-    <div class="text-center">
-      <p class="curved-underline">We look forward to serving you!</p>
-    </div>
+    <Image
+      id="logo"
+      src={import("../assets/img/logo.png")}
+      width="550"
+      alt="Oat Café logo"
+      class="mx-auto h-auto w-96 object-cover"
+      loading="eager"
+    />
   </div>
 </Layout>
-
-<style>
-  .curved-underline {
-    position: relative;
-    display: inline-block;
-  }
-
-  .curved-underline::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 100%;
-    height: 24px;
-    border-bottom: 2px solid #000;
-    border-radius: 50%;
-  }
-</style>

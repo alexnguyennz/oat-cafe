@@ -59,21 +59,21 @@ const { title, orientation } = Astro.props;
     <Header />
 
     <main
-      class="relative mx-5 my-12 flex max-w-2xl flex-col gap-6 self-center rounded-3xl p-8 text-black shadow-xl xl:max-w-3xl"
+      class="relative mx-5 my-12 flex max-w-2xl flex-col gap-6 self-center rounded-3xl p-8 text-black xl:max-w-3xl"
     >
       <slot />
 
-      <OatDecoration orientation={orientation} />
+      <!--<OatDecoration orientation={orientation} />-->
     </main>
 
     <Footer />
 
-    <style>
+    <!--<style>
       main {
         background:
           linear-gradient(rgba(255, 243, 228, 0.25), rgba(221, 204, 179, 0.25)),
           url("/wood-flat.png") center center / 100% 100% no-repeat;
       }
-    </style>
+    </style>-->
   </body>
 </html>

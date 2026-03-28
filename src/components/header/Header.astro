@@ -28,12 +28,12 @@ const pathname = Astro.url.pathname;
 }
 
 <header class="font-serif sticky top-0 z-40 w-full bg-black text-white backdrop-blur-lg">
-  <nav class="relative flex h-20 items-center px-5">
+  <nav class="relative flex h-14 items-center px-5">
     {pathname === "/" && <a
       href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
       target="_blank"
       rel="noreferrer noopener nofollow"
-      class="corner absolute left-0 top-full size-[8.5rem] bg-gray-500 sm:size-36 md:size-48"
+      class="corner absolute left-0 top-full size-[8.5rem] bg-gray-800 sm:size-36 md:size-48"
       ><Image
         src={import("../../assets/img/akau-tangi.png")}
         width="250"
@@ -43,18 +43,18 @@ const pathname = Astro.url.pathname;
       /></a
     >}
 
-    <a href="/"
+    <!--<a href="/" class="size-28 rounded-full bg-black  absolute top-1.5 flex items-center justify-center border-[6px] border-stone-600"
       ><Image
         id="logo"
         src={import("../../assets/img/logo.png")}
         width="250"
         alt="Oat Café logo"
-        class="mx-auto w-24"
+        class="mx-auto w-20 h-auto object-cover"
         loading="eager"
       /></a
-    >
+    >-->
 
-    <ul class="absolute left-1/2 flex -translate-x-1/2 gap-2 text-xl">
+    <ul class="absolute left-1/2 flex -translate-x-1/2 gap-2 text-lg">
       {
         links.map((link) => (
           <li class="relative">
