@@ -1,6 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Theme */
+@theme {
+    /* Font */
+    --font-serif: var(--font-dm-serif-display), serif;
+
+    /* Colors */
+    --color-primary-brown: #A56C30;
+    --color-primary-gray: #DDCCB3;
+    --color-secondary-brown: #8E5A2A;
+    --color-secondary-gray: #AE9E8A;
+    --color-tertiary-red: #9B2A2A;
+    --color-accent-red: #D4413B;
+    --color-tertiary-yellow: #BB832B;
+    --color-accent-yellow: #EFAA1F;
+    --color-tertiary-purple: #1F0E23;
+    --color-accent-purple: #471651;
+}
+
+/* Plugins */
+@plugin "@tailwindcss/typography";
 
 @font-face {
   font-family: "League Spartan";

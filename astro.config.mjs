@@ -1,7 +1,7 @@
 import { defineConfig, fontProviders } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,9 +15,6 @@ export default defineConfig({
     },
   ],
   integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
     sitemap(),
     icon({
       iconDir: "src/assets/icons",
@@ -34,4 +31,7 @@ export default defineConfig({
       },
     }),
   ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
