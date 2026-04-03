@@ -38,7 +38,23 @@ const pathname = Astro.url.pathname;
         src={import("../../assets/img/akau-tangi.png")}
         width="250"
         alt="Akau Tangi Sports Centre logo"
-        class="size-20 md:size-24 lg:size-28"
+        class="size-20 md:size-24 lg:size-28 duration-300 hover:translate-y-0.5"
+        loading="eager"
+      /></a
+    >}
+
+    {pathname === "/" && <a
+      href="https://www.ubereats.com/nz/store/oat-cafe/Wm4KrAvQTueBU13tp67w7Q"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      class="absolute top-20 right-5 duration-300 hover:translate-y-0.5"
+    >
+      <Image
+        id="logo"
+        src={import("../../assets/img/uber/uber-eats.png")}
+        width="350"
+        alt="Uber Eats logo"
+        class="mx-auto h-auto w-24 self-center"
         loading="eager"
       /></a
     >}
@@ -61,10 +77,10 @@ const pathname = Astro.url.pathname;
             <a
               href={link.href}
               class={cn(
-                "group relative z-20 inline-flex rounded-lg p-2 font-semibold uppercase text-white transition-colors hover:text-white",
+                "group relative z-20 inline-flex rounded-lg mx-2 font-semibold uppercase text-white transition-colors hover:text-white underline-animation",
                 link.href === "/"
-                  ? pathname === "/" && "underline underline-offset-4 decoration-2"
-                  : pathname.startsWith(link.href) && "underline underline-offset-4 decoration-2",
+                  ? pathname === "/" && "underline-active"
+                  : pathname.startsWith(link.href) && "underline-active",
               )}
               data-astro-prefetch
             >

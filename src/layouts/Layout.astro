@@ -6,14 +6,13 @@ import { ClientRouter } from "astro:transitions";
 
 import Header from "@/components/header/Header.astro";
 import Footer from "@/components/Footer.astro";
-import OatDecoration from "@/components/OatDecoration.astro";
 
 interface Props {
   title: string;
   orientation: string;
 }
 
-const { title, orientation } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -32,30 +31,17 @@ const { title, orientation } = Astro.props;
 
     <slot name="head" />
 
-    <link
-      rel="preload"
-      href="/fonts/LeagueSpartan.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="/fonts/Oswald.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
     <Font cssVariable="--font-dm-serif-display" />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <ClientRouter />
+    <!--<ClientRouter />-->
   </head>
   <body class="mx-auto flex min-h-screen flex-col text-xl">
     <Header />
 
     <main
+      transition:animate="fade"
       class="relative mx-5 my-12 flex max-w-2xl flex-col gap-6 self-center rounded-3xl p-8 text-black xl:max-w-3xl"
     >
       <slot />

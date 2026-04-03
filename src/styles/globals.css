@@ -6,23 +6,22 @@
 
 /* Theme */
 @theme {
-    /* Font */
-    --font-sans: var(--font-league-spartan), sans-serif;
-    --font-serif: var(--font-dm-serif-display), serif;
+  /* Font */
+  --font-sans: var(--font-league-spartan), sans-serif;
+  --font-serif: var(--font-dm-serif-display), serif;
 
-    /* Colors */
-    --color-primary-brown: #A56C30;
-    --color-primary-gray: #DDCCB3;
-    --color-secondary-brown: #8E5A2A;
-    --color-secondary-gray: #AE9E8A;
-    --color-tertiary-red: #9B2A2A;
-    --color-accent-red: #D4413B;
-    --color-tertiary-yellow: #BB832B;
-    --color-accent-yellow: #EFAA1F;
-    --color-tertiary-purple: #1F0E23;
-    --color-accent-purple: #471651;
+  /* Colors */
+  --color-primary-brown: #a56c30;
+  --color-primary-gray: #ddccb3;
+  --color-secondary-brown: #8e5a2a;
+  --color-secondary-gray: #ae9e8a;
+  --color-tertiary-red: #9b2a2a;
+  --color-accent-red: #d4413b;
+  --color-tertiary-yellow: #bb832b;
+  --color-accent-yellow: #efaa1f;
+  --color-tertiary-purple: #1f0e23;
+  --color-accent-purple: #471651;
 }
-
 
 /*@font-face {
   font-family: "League Spartan";
@@ -41,7 +40,7 @@
 
 body {
   font-family: var(--font-sans), sans-serif;
-  background: url("/pages/home.png") center/cover no-repeat;
+  background-color: white;
 }
 
 h1 {
@@ -68,9 +67,24 @@ main a {
   font-weight: 400;
 }
 
-main a:hover, footer a:hover {
-  text-decoration: underline;
+.underline-animation {
+  @apply relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full before:origin-right before:scale-x-0 before:bg-white before:transition-transform before:duration-300 before:ease-in-out hover:before:origin-left hover:before:scale-x-100;
 }
+
+.underline-active {
+  @apply before:origin-left before:scale-x-100;
+}
+
+/*
+relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full
+before:origin-right before:scale-x-0 before:bg-white before:transition-transform
+before:duration-300 before:ease-in-out hover:before:origin-left hover:before:scale-x-100
+
+ */
+
+/*main a:hover, footer a:hover {
+  text-decoration: underline;
+}*/
 
 address {
   font-style: normal;
