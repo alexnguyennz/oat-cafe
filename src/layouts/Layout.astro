@@ -31,18 +31,19 @@ const { title } = Astro.props;
 
     <slot name="head" />
 
-    <Font cssVariable="--font-dm-serif-display" />
+    <Font cssVariable="--font-league-spartan" />
+    <Font cssVariable="--font-literata" />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!--<ClientRouter />-->
+    <ClientRouter />
   </head>
   <body class="mx-auto flex min-h-screen flex-col text-xl">
     <Header />
 
     <main
       transition:animate="fade"
-      class="relative mx-5 my-12 flex max-w-2xl flex-col gap-6 self-center rounded-3xl p-8 text-black xl:max-w-3xl"
+      class="relative mx-5 my-12 flex w-full max-w-2xl flex-col gap-6 self-center rounded-3xl p-8 text-black xl:max-w-3xl"
     >
       <slot />
 

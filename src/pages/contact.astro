@@ -1,32 +1,15 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
-import ContactInfo from "@/components/ContactInfo.astro";
-
-import Label from "@/components/ui/Label.astro";
 import Input from "@/components/ui/Input.astro";
 import Textarea from "@/components/ui/Textarea.astro";
 import Button from "@/components/ui/Button.astro";
+
+import { ContactForm } from "@/components/contact-form";
 ---
 
 <Layout title="Contact" orientation="top-left">
   <h1>Contact</h1>
-
-  <div class="space-y-3">
-    <p>
-      Join us at Oat Café, where every cup is brewed with love, and every meal
-      is served with a smile.
-    </p>
-
-    <p>
-      We look forward to sharing the joy of good food and great company with you
-      soon.
-    </p>
-  </div>
-
-  <div class="flex flex-col justify-center gap-4 sm:flex-row">
-    <ContactInfo />
-  </div>
 
   <div class="grid gap-6">
     <iframe
@@ -48,19 +31,10 @@ import Button from "@/components/ui/Button.astro";
       class="mx-auto flex w-full max-w-lg flex-col gap-4"
       data-astro-reload
     >
-      <div>
-        <Label htmlFor="name" className="required">Name <span>*</span></Label>
-        <Input
-          type="text"
-          id="name"
-          name="name"
-          data-testid="name-input"
-          required
-        />
-      </div>
+      <ContactForm client:visible />
 
       <div>
-        <Label htmlFor="email" className="required">Email <span>*</span></Label>
+        <!--<Label htmlFor="email" className="required">Email <span>*</span></Label>-->
         <Input
           type="email"
           id="email"
@@ -71,9 +45,9 @@ import Button from "@/components/ui/Button.astro";
       </div>
 
       <div>
-        <Label htmlFor="message" className="required"
+        <!-- <Label htmlFor="message" className="required"
           >Message <span>*</span></Label
-        >
+        >-->
         <Textarea
           id="message"
           name="message"
@@ -84,7 +58,7 @@ import Button from "@/components/ui/Button.astro";
       </div>
 
       <Button type="submit" className="self-end" data-testid="submit-button">
-        Get in touch →
+        Get in touch
       </Button>
     </form>
   </div>

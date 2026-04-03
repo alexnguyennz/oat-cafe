@@ -13,11 +13,12 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "League Spartan",
       cssVariable: "--font-league-spartan",
+      weights: [300, 400, 600, 700],
     },
     {
       provider: fontProviders.fontsource(),
       name: "Literata",
-      cssVariable: "--font-dm-serif-display",
+      cssVariable: "--font-literata",
     },
   ],
   integrations: [
