@@ -38,12 +38,12 @@ const { title } = Astro.props;
 
     <ClientRouter />
   </head>
-  <body class="mx-auto flex min-h-screen flex-col text-xl">
+  <body class="mx-auto flex min-h-screen flex-col bg-gray-900 text-xl">
     <Header />
 
     <main
       transition:animate="fade"
-      class="relative mx-5 my-12 flex w-full max-w-2xl flex-col gap-6 self-center rounded-3xl p-8 text-black xl:max-w-3xl"
+      class="relative mx-5 my-12 flex w-full max-w-4xl flex-col gap-6 self-center rounded-3xl p-5 text-black xl:max-w-5xl"
     >
       <slot />
 
