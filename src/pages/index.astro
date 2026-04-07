@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 
 import { Button } from "@heroui/react";
+import { GoogleReviewsModal } from "@/components/google-reviews-modal.tsx";
 ---
 
 <Layout title="Home" orientation="bottom-left">
@@ -25,7 +26,19 @@ import { Button } from "@heroui/react";
       ></a
     >
   </div>
-</Layout>
+
+  <GoogleReviewsModal client:visible />
+
+  <div
+    id="featurable-5a9cb335-592b-440d-9e8d-be7723a4b03d"
+    data-featurable-async
+    data-location-code="undefined"
+  >
+  </div>
+</Layout><script
+  src="https://featurable.com/assets/v2/undefined.min.js"
+  defer
+  charset="UTF-8"></script>
 
 <style>
   body {

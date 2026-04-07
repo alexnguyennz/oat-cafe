@@ -77,9 +77,9 @@ const pathname = Astro.url.pathname;
             <a
               href={link.href}
               class={cn(
-                "group relative z-20 inline-flex rounded-lg mx-2 font-semibold uppercase text-white transition-colors hover:text-white underline-animation",
+                "group relative z-20 inline-flex rounded-lg mx-2 font-semibold uppercase text-white transition-colors hover:text-white underline-animation before:!h-[3px]",
                 link.href === "/"
-                  ? pathname === "/" && "underline-active"
+                  ? pathname === "/" && "underline-active before:!h-[3px]"
                   : pathname.startsWith(link.href) && "underline-active",
               )}
               data-astro-prefetch

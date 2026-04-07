@@ -43,26 +43,6 @@ body {
   font-weight: 300;
 }
 
-h1 {
-  /*font-family: "Oswald", sans-serif;*/
-  text-align: center;
-  font-weight: 600;
-  font-size: 2rem;
-  line-height: 2.25rem;
-  letter-spacing: 0.025em;
-  text-transform: uppercase;
-}
-
-h2 {
-  /*font-family: "Oswald", sans-serif;*/
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.75rem;
-  line-height: 1.75rem;
-  letter-spacing: 0.025em;
-  text-transform: uppercase;
-}
-
 main a {
   font-weight: 400;
 }
