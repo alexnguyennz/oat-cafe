@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { Button, Modal, Spinner } from "@heroui/react";
+import { Button, Modal } from "@heroui/react";
 
-export const GoogleReviewsModal = () => {
+export const GoogleReviewsModal = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenChange = (nextOpen: boolean) => {
@@ -24,9 +24,9 @@ export const GoogleReviewsModal = () => {
 
   return (
     <Modal>
-      <Button onPress={() => setIsOpen(true)} variant="secondary">
-        Open Modal
-      </Button>
+      <button onClick={() => setIsOpen(true)} className="cursor-pointer">
+        {children}
+      </button>
       <Modal.Backdrop
         isOpen={isOpen}
         onOpenChange={handleOpenChange}
@@ -35,14 +35,6 @@ export const GoogleReviewsModal = () => {
         <Modal.Container size="lg" placement="bottom">
           <Modal.Dialog className="max-w-4xl">
             <Modal.CloseTrigger />
-            {/*<Modal.Header>
-              <Modal.Heading>
-                Had a great experience at Oat Cafe? Don't forget to leave a
-                review!
-              </Modal.Heading>
-            </Modal.Header>*/}
-
-            {/*<Spinner size="xl" className="m-auto" />*/}
             <Modal.Body>
               <p className="text-center text-xl text-black">
                 Had a great experience at Oat Café? Don't forget to leave a

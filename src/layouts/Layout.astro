@@ -1,11 +1,12 @@
 ---
 import "@/styles/globals.css";
 
-import { Font } from "astro:assets";
+import { Font, Image } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 
 import Header from "@/components/header/Header.astro";
 import Footer from "@/components/Footer.astro";
+import { GoogleReviewsModal } from "@/components/google-reviews-modal.tsx";
 
 interface Props {
   title: string;
@@ -46,18 +47,28 @@ const { title } = Astro.props;
       class="relative mx-5 my-12 flex w-full max-w-4xl flex-col gap-6 self-center rounded-3xl p-5 text-black xl:max-w-5xl"
     >
       <slot />
-
-      <!--<OatDecoration orientation={orientation} />-->
     </main>
 
     <Footer />
 
-    <!--<style>
-      main {
-        background:
-          linear-gradient(rgba(255, 243, 228, 0.25), rgba(221, 204, 179, 0.25)),
-          url("/wood-flat.png") center center / 100% 100% no-repeat;
+    <GoogleReviewsModal client:visible
+      ><div
+        class="corner absolute right-0 bottom-0 size-[8.5rem] overflow-hidden bg-white sm:size-36 md:size-48"
+      >
+        <Image
+          id="logo"
+          src={import("../assets/img/google-reviews.png")}
+          width="550"
+          alt="Google Reviews logo"
+          class="absolute right-0 bottom-0 size-24 -rotate-45 object-contain duration-300 md:size-32"
+          loading="eager"
+        />
+      </div></GoogleReviewsModal
+    >
+    <style>
+      .corner {
+        clip-path: polygon(100% 100%, 0 100%, 100% 0);
       }
-    </style>-->
+    </style>
   </body>
 </html>

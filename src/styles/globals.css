@@ -23,21 +23,6 @@
   --color-accent-purple: #471651;
 }
 
-/*@font-face {
-  font-family: "League Spartan";
-  src: url("/fonts/LeagueSpartan.woff2") format("woff2");
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-    font-family: "Oswald";
-    src: url("/fonts/Oswald.woff2") format("woff2");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}*/
-
 body {
   font-family: var(--font-sans), sans-serif;
   font-weight: 300;
@@ -54,17 +39,6 @@ main a {
 .underline-active {
   @apply before:origin-left before:scale-x-100;
 }
-
-/*
-relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full
-before:origin-right before:scale-x-0 before:bg-white before:transition-transform
-before:duration-300 before:ease-in-out hover:before:origin-left hover:before:scale-x-100
-
- */
-
-/*main a:hover, footer a:hover {
-  text-decoration: underline;
-}*/
 
 address {
   font-style: normal;
