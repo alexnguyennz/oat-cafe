@@ -1,16 +1,11 @@
-//import Swiper from "swiper";
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  EffectCoverflow,
-} from "swiper/modules";
+import { useRef } from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+
+import LightGallery from "lightgallery/react";
+import lgThumbnail from "lightgallery/plugins/thumbnail";
 
 import imageOne from "../../../assets/img/pages/about/gallery/1.png";
 import imageTwo from "../../../assets/img/pages/about/gallery/2.png";
@@ -18,68 +13,71 @@ import imageThree from "../../../assets/img/pages/about/gallery/3.jpg";
 import imageFour from "../../../assets/img/pages/about/gallery/4.png";
 import imageFive from "../../../assets/img/pages/about/gallery/5.png";
 
+const images = [
+  imageOne.src,
+  imageTwo.src,
+  imageThree.src,
+  imageFour.src,
+  imageFive.src,
+];
+
 export const Gallery = () => {
+  const swiperRef = useRef(null);
+  const lgRef = useRef(null);
+
   return (
-    <Swiper
-      /*spaceBetween={50}
-      slidesPerView={3}
-      onSlideChange={() => console.log("slide change")}
-      */
-      /*effect={"coverflow"}
-      grabCursor={true}
-      centeredSlides={true}
-      slidesPerView={"auto"}
-      coverflowEffect={{
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
+    <LightGallery
+      onInit={(detail) => {
+        lgRef.current = detail.instance;
       }}
-      pagination={true}
-      modules={[EffectCoverflow, Pagination]}*/
-      slidesPerView={3}
-      spaceBetween={30}
-      /* pagination={{
-        clickable: true,
-      }}*/
-      centeredSlides={true}
-      initialSlide={1}
-      modules={[Pagination]}
-      loop={true}
-      grabCursor={true}
-      slideToClickedSlide={true}
+      dynamic={true}
+      dynamicEl={images.map((src) => ({
+        src,
+        thumb: src,
+      }))}
+      onBeforeSlide={({ index }) => {
+        if (swiperRef) swiperRef.current?.slideToLoop(index, 0);
+      }}
+      plugins={[lgThumbnail]}
+      speed={500}
+      elementClassNames="lg-wrapper"
     >
-      <SwiperSlide>
-        <img
-          src={imageOne.src}
-          className="h-[400px] w-full rounded-[3rem] object-cover"
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src={imageTwo.src}
-          className="h-[400px] w-full rounded-[3rem] object-cover"
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src={imageThree.src}
-          className="h-[400px] w-full rounded-[3rem] object-cover"
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src={imageFour.src}
-          className="h-[400px] w-full rounded-[3rem] object-cover"
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src={imageFive.src}
-          className="h-[400px] w-full rounded-[3rem] object-cover"
-        />
-      </SwiperSlide>
-    </Swiper>
+      <Swiper
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        modules={[Pagination, Autoplay]}
+        slidesPerView={3}
+        spaceBetween={30}
+        centeredSlides
+        initialSlide={1}
+        loop
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        grabCursor
+        slideToClickedSlide
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <img
+              src={image}
+              onClick={() => {
+                const swiper = swiperRef.current;
+
+                if (!swiper) return;
+
+                // Only allow fullscreen for active slides
+                if (swiper.realIndex === index) {
+                  lgRef.current?.openGallery(index);
+                }
+              }}
+              className="h-[350px] w-full rounded-[3rem] object-cover"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </LightGallery>
   );
 };
