@@ -1,23 +1,55 @@
 ---
+import { Image } from "astro:assets";
+
+import { Button } from "@heroui/react";
+
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="Menu" orientation="top-left">
-  <h1>Menu</h1>
+<Layout title="Menu">
+  <div class="grid items-center gap-6 pt-24 text-white md:grid-cols-2">
+    <div class="hero space-y-6">
+      <h2 class="font-serif text-3xl">Love the food but hate the wait?</h2>
 
-  <p>
-    Our menu boasts a delectable selection of food options, ranging from hearty
-    breakfasts to mouthwatering lunch options and tempting treats. Using fresh,
-    sourced ingredients, our chefs create culinary delights that cater to every
-    palate and dietary preference.
-  </p>
+      <h2 class="font-serif text-3xl">Order on Uber Eats and skip the line!</h2>
 
-  <a
-    href="/menu.jpg"
-    class="h-48 w-72 self-center rounded-xl bg-[url('/menu.webp')] bg-cover bg-center text-white shadow-xl hover:no-underline"
-  >
-    <h2 class="w-full rounded-t-xl bg-black bg-opacity-80 py-2 text-lg">
-      Our Menu
-    </h2>
-  </a>
+      <div class="flex justify-center">
+        <a
+          href="https://www.ubereats.com/nz/store/oat-cafe/Wm4KrAvQTueBU13tp67w7Q"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+        >
+          <Image
+            id="logo"
+            src={import("../assets/img/uber/uber-eats.png")}
+            width="350"
+            alt="Uber Eats logo"
+            class="mx-auto h-auto w-42 self-center"
+            loading="eager"
+          /></a
+        >
+      </div>
+    </div>
+
+    <div>
+      <div class="flex justify-center bg-black p-12">
+        <a href="/menu.jpg" class="w-full">
+          <Button
+            size="lg"
+            fullWidth={true}
+            className="h-12 w-32 w-full rounded-none border bg-black font-serif text-xl text-white"
+            >Menu</Button
+          ></a
+        >
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<style>
+  body {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("/pages/menu.png") center/cover no-repeat;
+  }
+</style>
