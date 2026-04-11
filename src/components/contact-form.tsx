@@ -109,7 +109,11 @@ export const ContactForm = () => {
           <FieldError className="text-lg" />
         </TextField>
 
-        <Button type="submit" size="lg" className="bg-white text-xl text-black">
+        <Button
+          type="submit"
+          size="lg"
+          className="bg-white pb-1 font-serif text-black"
+        >
           Get in touch
         </Button>
       </Form>

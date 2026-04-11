@@ -4,8 +4,8 @@ import Layout from "@/layouts/Layout.astro";
 import { ContactForm } from "@/components/contact-form";
 ---
 
-<Layout title="Contact" orientation="top-left">
-  <div class="grid gap-6 md:grid-cols-2">
+<Layout title="Contact">
+  <div class="mt-12 grid gap-6 md:grid-cols-2">
     <iframe
       title="Google Maps location"
       width="100%"
@@ -31,7 +31,9 @@ import { ContactForm } from "@/components/contact-form";
 </Layout>
 
 <style>
-  span {
-    color: red;
+  body {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("/pages/home.png") center/cover no-repeat;
   }
 </style>

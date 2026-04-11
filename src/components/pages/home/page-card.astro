@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+import { Button } from "@heroui/react";
+interface Props {
+  title: string;
+  href: string;
+}
+
+const { title, href } = Astro.props;
+---
+
+<div class="relative mx-auto w-full">
+  <Image
+    id="logo"
+    src={import(`../../../assets/img/pages/home/${title.toLowerCase()}.png`)}
+    width="500"
+    alt={`${title} image`}
+    class="mx-auto h-full max-h-[300px] w-full object-cover md:max-h-[500px]"
+    loading="eager"
+  />
+
+  <a
+    href={href}
+    class="absolute bottom-1/5 left-1/2 -translate-x-1/2 transition-transform duration-300 hover:translate-y-1"
+  >
+    <Button
+      size="lg"
+      variant="tertiary"
+      className="h-20 w-40 rounded-full bg-black pb-1 font-serif text-xl text-white"
+      >{title}</Button
+    ></a
+  >
+</div>

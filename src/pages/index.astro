@@ -1,13 +1,25 @@
 ---
 import { Image } from "astro:assets";
 
-import Layout from "@/layouts/Layout.astro";
-
 import { Button } from "@heroui/react";
+
+import Layout from "@/layouts/Layout.astro";
+import PageCard from "@/components/pages/home/page-card.astro";
+
+const pages = [
+  { title: "Menu", href: "/menu" },
+  { title: "Venue", href: "/venue" },
+  { title: "Catering", href: "/catering" },
+  { title: "About", href: "/about" },
+];
 ---
 
-<Layout title="Home" orientation="bottom-left">
-  <div class="space-y-6">
+<Layout title="Home" full>
+  <div class="hero min-h-[500px] space-y-6 pt-12">
+    <p class="text-center font-serif text-xl text-white uppercase">
+      8am–7pm daily
+    </p>
+
     <Image
       id="logo"
       src={import("../assets/img/logo.png")}
@@ -17,21 +29,23 @@ import { Button } from "@heroui/react";
       loading="eager"
     />
 
-    <a href="/menu" class="flex justify-center">
-      <Button
-        size="lg"
-        className="bg-primary-brown h-12 w-32 font-serif text-xl font-bold uppercase"
-        >Menu</Button
-      ></a
-    >
+    <div class="flex justify-center">
+      <a href="/menu">
+        <Button
+          size="lg"
+          className="bg-primary-brown h-12 w-32 font-serif text-xl">Menu</Button
+        ></a
+      >
+    </div>
   </div>
-</Layout><script
-  src="https://featurable.com/assets/v2/undefined.min.js"
-  defer
-  charset="UTF-8"></script>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4">
+    {pages.map((page) => <PageCard {...page} />)}
+  </div>
+</Layout>
 
 <style>
-  body {
+  .hero {
     background:
       linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
       url("/pages/home.png") center/cover no-repeat;

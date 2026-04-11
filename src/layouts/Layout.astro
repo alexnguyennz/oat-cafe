@@ -7,13 +7,14 @@ import { ClientRouter } from "astro:transitions";
 import Header from "@/components/header/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { GoogleReviewsModal } from "@/components/google-reviews-modal.tsx";
+import { cn } from "@heroui/react";
 
 interface Props {
   title: string;
-  orientation: string;
+  full?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, full } = Astro.props;
 ---
 
 <!doctype html>
@@ -39,12 +40,17 @@ const { title } = Astro.props;
 
     <ClientRouter />
   </head>
-  <body class="mx-auto flex min-h-screen flex-col bg-gray-900 text-xl">
+  <body class="relative flex min-h-screen flex-col text-xl">
     <Header />
+
+    <!--class="relative mx-5 flex flex-1 items-center justify-center w-full max-w-4xl flex-col rounded-3xl px-5 text-black xl:max-w-5xl"-->
 
     <main
       transition:animate="fade"
-      class="relative mx-5 my-12 flex w-full max-w-4xl flex-col gap-6 self-center rounded-3xl p-5 text-black xl:max-w-5xl"
+      class={cn(
+        "relative mx-5 flex w-full max-w-4xl flex-col self-center rounded-3xl px-5 text-black xl:max-w-5xl",
+        full && "!max-w-full px-0",
+      )}
     >
       <slot />
     </main>
