@@ -48,8 +48,8 @@ const { title, full } = Astro.props;
     <main
       transition:animate="none"
       class={cn(
-        "relative mx-5 flex w-full max-w-4xl flex-col self-center rounded-3xl px-5 text-black xl:max-w-7xl flex-1 justify-center",
-        full && "!max-w-full px-0",
+        "relative mx-5 flex w-full max-w-4xl flex-col self-center rounded-3xl px-5 text-black xl:max-w-7xl flex-1 justify-center gap-6",
+        full && "max-w-full xl:max-w-full px-0 gap-0",
       )}
     >
       <slot />

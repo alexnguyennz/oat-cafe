@@ -19,7 +19,7 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "Literata",
       cssVariable: "--font-literata",
-      weights: [400, 600, 700],
+      weights: [400, 500, 600, 700],
     },
   ],
   integrations: [

@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+
+import { Button } from "@heroui/react";
+
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="About">
+  <div class="grid items-center gap-6 pt-24 text-white">
+    <div class="hero space-y-6">
+      <Image
+        id="logo"
+        src={import("../assets/img/logo.png")}
+        width="550"
+        alt="Oat Café logo"
+        class="mx-auto h-auto object-cover"
+        loading="eager"
+      />
+    </div>
+  </div>
+
+  <div class="space-y-6 rounded-3xl bg-white p-10">
+    <h2
+      class="text-primary-brown text-center font-serif text-6xl font-medium text-balance"
+    >
+      Our dedication to you
+    </h2>
+    <p
+      class="text-primary-brown/75 mx-auto max-w-5xl text-center font-serif text-4xl leading-12 font-medium text-balance"
+    >
+      At Oat Café, we pride ourselves on being more than just a place to grab a
+      quick bite — we are a family-friendly and child-friendly destination where
+      friends gather, and memories are made.
+    </p>
+  </div>
+
+  <div>
+    <h2
+      class="text-center font-serif text-6xl font-medium text-balance text-white text-shadow-lg"
+    >
+      View our venue
+    </h2>
+  </div>
+</Layout>
+
+<style>
+  body {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+      url("/pages/about.jpg") center/cover no-repeat;
+  }
+</style>
