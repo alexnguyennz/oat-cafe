@@ -9,9 +9,105 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
 ---
 
 <Layout title="About" full>
-  <div
-    class="flex w-full max-w-4xl flex-1 flex-col justify-center gap-6 self-center rounded-3xl px-5 text-black xl:max-w-7xl"
+  <div class="relative">
+    <div class="absolute inset-0">
+      <img src="/pages/about.jpg" class="h-full w-full object-cover" />
+      <!--<div
+        class="absolute inset-0 bg-gradient-to-b from-transparent via-black/1 to-black"
+      >
+      </div>-->
+    </div>
+
+    <div
+      class="relative z-10 mb-12 flex flex-col justify-center gap-10 px-5 text-white"
+    >
+      <div class="grid items-center gap-6 pt-24">
+        <Image
+          id="logo"
+          src={import("../assets/img/logo.png")}
+          width="550"
+          alt="Oat Café logo"
+          class="mx-auto h-auto object-cover"
+          loading="eager"
+        />
+      </div>
+
+      <div
+        class="mx-auto max-w-4xl space-y-6 rounded-3xl bg-white p-10 text-black"
+      >
+        <h2
+          class="text-primary-brown text-center font-serif text-6xl font-medium"
+        >
+          Our dedication to you
+        </h2>
+
+        <p
+          class="text-primary-brown/75 mx-auto max-w-5xl text-center font-serif text-4xl leading-12 font-medium"
+        >
+          At Oat Café, we pride ourselves on being more than just a place to
+          grab a quick bite — we are a family-friendly and child-friendly
+          destination where friends gather, and memories are made.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <section class="bg-black py-12">
+    <div
+      class="relative mx-auto flex w-full max-w-4xl flex-1 flex-col justify-center gap-6 self-center rounded-3xl px-5 text-black xl:max-w-7xl"
+    >
+      <h2
+        class="text-center font-serif text-6xl font-medium text-balance text-white text-shadow-lg"
+      >
+        View our venue
+      </h2>
+
+      <Gallery client:visible />
+    </div>
+  </section>
+
+  <div class="relative bg-white py-12">
+    <div
+      class="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col justify-center gap-6 self-center rounded-3xl px-5 text-black xl:max-w-7xl"
+    >
+      <h2
+        class="text-center font-serif text-6xl font-medium text-balance text-black"
+      >
+        Proudly owned by Yellow Seat
+      </h2>
+      <div class="max-w-3xl space-y-6 rounded-3xl bg-neutral-800 p-10">
+        <p
+          class="mx-auto max-w-5xl text-center font-serif text-4xl leading-12 font-medium text-balance text-white"
+        >
+          Yellow Seat was founded out of a love of cuisine, our passion for
+          service, and a drive to excel in the industry. We take great pleasure
+          in being able to produce almost any delectable dish you can think of
+          and deliver it with unmatched service.
+        </p>
+      </div>
+    </div>
+
+    <Image
+      id="logo"
+      src={import("../assets/img/pages/about/proudly-owned.png")}
+      width="1550"
+      alt=""
+      class="absolute right-0 bottom-0 mx-auto h-auto w-1/2 max-w-[800px] object-contain"
+      loading="eager"
+    />
+  </div>
+
+  <!--<div
+    class="relative flex w-full flex-1 flex-col justify-center gap-6 self-center rounded-3xl px-5 text-black"
   >
+    <img src="/pages/about.jpg" class="h-full w-full object-cover" />
+    &lt;!&ndash; fade overlay &ndash;&gt;
+
+    <div
+      class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black"
+    >
+    </div>
+
     <div class="grid items-center gap-6 pt-24 text-white">
       <div class="hero space-y-6">
         <Image
@@ -49,27 +145,10 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
 
       <Gallery client:visible />
     </div>
-  </div>
-
-  <div class="bg-black">
-    <h2
-      class="text-center font-serif text-6xl font-medium text-balance text-white text-shadow-lg"
-    >
-      Oat Café is proudly owned by Yellow Seat
-    </h2>
-    <div class="space-y-6 rounded-3xl bg-neutral-800 p-10">
-      <p
-        class="mx-auto max-w-5xl text-center font-serif text-4xl leading-12 font-medium text-balance text-white"
-      >
-        Yellow Seat was founded out of a love of cuisine, our passion for
-        service, and a drive to excel in the industry. We take great pleasure in
-        being able to produce almost any delectable dish you can think of and
-        deliver it with unmatched service.
-      </p>
-    </div>
-  </div>
+  </div>-->
 </Layout>
 
+<!--
 <style>
   body {
     background:
@@ -77,3 +156,4 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
       url("/pages/about.jpg") center/cover no-repeat;
   }
 </style>
+-->

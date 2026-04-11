@@ -52,7 +52,6 @@ export const Gallery = () => {
         slidesPerView={3}
         spaceBetween={30}
         centeredSlides
-        initialSlide={1}
         breakpoints={{
           480: {
             slidesPerView: 1.5,
@@ -89,7 +88,7 @@ export const Gallery = () => {
                   lgRef.current?.openGallery(index);
                 }
               }}
-              className="h-[350px] w-full rounded-[3rem] object-cover"
+              className="h-[350px] w-full object-cover"
             />
           </SwiperSlide>
         ))}
