@@ -43,3 +43,16 @@ main a {
 address {
   font-style: normal;
 }
+
+.swiper-slide {
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+  transform: scale(0.85);
+  filter: blur(1px);
+}
+
+.swiper-slide-active {
+  transform: scale(1);
+  filter: blur(0);
+}
