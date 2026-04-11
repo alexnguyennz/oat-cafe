@@ -6,6 +6,8 @@ import "swiper/css";
 
 import LightGallery from "lightgallery/react";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-thumbnail.css";
 
 import imageOne from "../../../assets/img/pages/about/gallery/1.png";
 import imageTwo from "../../../assets/img/pages/about/gallery/2.png";
@@ -51,6 +53,20 @@ export const Gallery = () => {
         spaceBetween={30}
         centeredSlides
         initialSlide={1}
+        breakpoints={{
+          480: {
+            slidesPerView: 1.5,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+          1280: {
+            slidesPerView: 3,
+          },
+        }}
         loop
         autoplay={{
           delay: 5000,
