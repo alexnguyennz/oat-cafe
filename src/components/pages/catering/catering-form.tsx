@@ -10,7 +10,7 @@ import {
   Button,
 } from "@heroui/react";
 
-export const ContactForm = () => {
+export const CateringForm = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -42,7 +42,7 @@ export const ContactForm = () => {
   return (
     <>
       <Toast.Provider />
-      <Form onSubmit={onSubmit} className="space-y-6">
+      <Form onSubmit={onSubmit} className="space-y-6 font-serif">
         <input type="hidden" name="form-name" value="contact" />
 
         <TextField
@@ -57,12 +57,9 @@ export const ContactForm = () => {
           className="w-full"
           name="name"
         >
-          <Label className="text-lg text-white">Name</Label>
-          <InputGroup>
-            <InputGroup.Input
-              className="w-full text-xl"
-              placeholder="Your name"
-            />
+          <Label className="text-lg text-amber-50">Full Name</Label>
+          <InputGroup className="bg-neutral-900 text-amber-50">
+            <InputGroup.Input className="w-full text-xl" />
           </InputGroup>
           <FieldError className="text-lg" />
         </TextField>
@@ -81,10 +78,7 @@ export const ContactForm = () => {
         >
           <Label className="text-lg text-white">Email address</Label>
           <InputGroup>
-            <InputGroup.Input
-              className="w-full text-xl"
-              placeholder="Your email"
-            />
+            <InputGroup.Input className="w-full text-xl" />
           </InputGroup>
           <FieldError className="text-lg" />
         </TextField>
@@ -101,18 +95,18 @@ export const ContactForm = () => {
           className="w-full"
           name="message"
         >
-          <Label className="text-lg text-white">Message</Label>
-          <TextArea
-            className="h-32 w-full text-xl"
-            placeholder="Your message"
-          />
+          <Label className="text-lg text-white">
+            Any other requirements. (Please note any additional requests are
+            subject to approval)
+          </Label>
+          <TextArea className="h-32 w-full text-xl" />
           <FieldError className="text-lg" />
         </TextField>
 
         <Button
           type="submit"
           size="lg"
-          className="bg-white pb-1 font-serif font-semibold text-black"
+          className="bg-white pb-1.5 font-serif text-xl font-semibold text-black"
         >
           Get in touch
         </Button>

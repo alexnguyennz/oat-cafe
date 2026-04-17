@@ -6,11 +6,9 @@
 
 /* Theme */
 @theme {
-  /* Font */
   --font-sans: var(--font-league-spartan), sans-serif;
   --font-serif: var(--font-literata), serif;
-
-  /* Colors */
+  --font-fancy: var(--font-luxurious-script), serif;
   --color-primary-brown: #a56c30;
   --color-primary-gray: #ddccb3;
   --color-secondary-brown: #8e5a2a;

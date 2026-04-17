@@ -21,6 +21,12 @@ export default defineConfig({
       cssVariable: "--font-literata",
       weights: [400, 500, 600, 700],
     },
+    {
+      provider: fontProviders.fontsource(),
+      name: "Luxurious Script",
+      cssVariable: "--font-luxurious-script",
+      weights: [400],
+    },
   ],
   integrations: [
     react(),
