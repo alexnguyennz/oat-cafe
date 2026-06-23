@@ -45,7 +45,7 @@ export const GoogleReviewsModal = ({ children }) => {
                 width="100%"
                 height="500"
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://featurable.com/widgets/v2/5a9cb335-592b-440d-9e8d-be7723a4b03d"
+                src="https://featurable.com/widgets/v2/preview?uuid=5a9cb335-592b-440d-9e8d-be7723a4b03d"
               ></iframe>
             </Modal.Body>
           </Modal.Dialog>
