@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 
 import { Button } from "@heroui/react";
 
-import Layout from "@/layouts/Layout.astro";
+import Layout from "../layouts/layout.astro";
 import PageCard from "@/components/pages/home/page-card.astro";
 
 const pages = [
@@ -33,9 +33,10 @@ const pages = [
       <a href="/menu">
         <Button
           size="lg"
-          className="bg-primary-brown h-12 w-32 font-serif text-xl">Menu</Button
-        ></a
-      >
+          className="bg-primary-brown h-12 w-32 font-serif text-xl"
+          >Menu
+        </Button>
+      </a>
     </div>
   </div>
 
