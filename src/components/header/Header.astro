@@ -12,6 +12,17 @@ const pathname = Astro.url.pathname;
 ---
 
 <header transition:animate="none" class="font-serif fixed top-0 z-40 w-full bg-black text-white backdrop-blur-lg">
+  <a href="/" class="p-3 flex items-center justify-center"
+  ><Image
+    id="logo"
+    src={import("../../assets/img/logo.png")}
+    width="250"
+    alt="Oat Café logo"
+    class="mx-auto w-28 h-auto object-cover"
+    loading="eager"
+  /></a
+  >
+
   <nav class="relative flex h-14 items-center px-5">
     {pathname === "/" && <a
       href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
