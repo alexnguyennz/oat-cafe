@@ -22,6 +22,23 @@ import tiktok from "@/assets/icons/tiktok.png";
       loading="eager"
     />
 
+    <a
+      href="https://theseats.co.nz"
+      target="_blank"
+      class="flex items-center gap-3"
+    >
+      <p>Brought to you by Yellow Seat</p>
+
+      <Image
+        id="logo"
+        src={import("../assets/img/yellowseat-chair.png")}
+        width="125"
+        alt="Yellow Seat logo"
+        class="h-auto w-8 object-cover"
+        loading="eager"
+      />
+    </a>
+
     <Address />
 
     <ContactInfo />
@@ -33,24 +50,27 @@ import tiktok from "@/assets/icons/tiktok.png";
         rel="noopener noreferrer nofollow"
         aria-label="Facebook page"
         class="duration-300 hover:translate-y-0.5"
-        ><Image src={facebook} alt="Facebook page" class="size-8" /></a
       >
+        <Image src={facebook} alt="Facebook page" class="size-8" />
+      </a>
       <a
         href="https://www.instagram.com/oat.cafe/"
         target="_blank"
         rel="noopener noreferrer nofollow"
         aria-label="Instagram page"
         class="duration-300 hover:translate-y-0.5"
-        ><Icon name="instagram" class="size-8" /></a
       >
+        <Icon name="instagram" class="size-8" />
+      </a>
       <a
         href="https://www.tiktok.com/@oat.cafe"
         target="_blank"
         rel="noopener noreferrer nofollow"
         aria-label="TikTok page"
         class="duration-300 hover:translate-y-0.5"
-        ><Image src={tiktok} alt="TikTok page" class="size-8" /></a
       >
+        <Image src={tiktok} alt="TikTok page" class="size-8" />
+      </a>
     </div>
   </div>
 </footer>

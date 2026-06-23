@@ -5,7 +5,7 @@ import { Font, Image } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 
 import Header from "@/components/header/Header.astro";
-import Footer from "@/components/Footer.astro";
+import Footer from "../components/footer.astro";
 import { GoogleReviewsModal } from "@/components/google-reviews-modal.tsx";
 import { cn } from "@heroui/react";
 
@@ -58,8 +58,8 @@ const { title, full } = Astro.props;
 
     <Footer />
 
-    <GoogleReviewsModal client:visible
-      ><div
+    <GoogleReviewsModal client:visible>
+      <div
         class="corner absolute right-0 bottom-0 size-[8.5rem] overflow-hidden bg-white sm:size-36 md:size-48"
       >
         <Image
@@ -70,8 +70,8 @@ const { title, full } = Astro.props;
           class="absolute right-0 bottom-0 size-24 -rotate-45 object-contain duration-300 md:size-32"
           loading="eager"
         />
-      </div></GoogleReviewsModal
-    >
+      </div>
+    </GoogleReviewsModal>
     <style>
       .corner {
         clip-path: polygon(100% 100%, 0 100%, 100% 0);

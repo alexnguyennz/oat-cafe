@@ -12,16 +12,20 @@ const pathname = Astro.url.pathname;
 ---
 
 <header transition:animate="none" class="font-serif fixed top-0 z-40 w-full bg-black text-white backdrop-blur-lg">
-  <a href="/" class="p-3 flex items-center justify-center"
-  ><Image
-    id="logo"
-    src={import("../../assets/img/logo.png")}
-    width="250"
-    alt="Oat Café logo"
-    class="mx-auto w-28 h-auto object-cover"
-    loading="eager"
-  /></a
-  >
+  <div class="flex justify-center py-3">
+    <a href="/" class="inline-block"
+    >
+      <Image
+        id="logo"
+        src={import("../../assets/img/logo.png")}
+        width="250"
+        alt="Oat Café logo"
+        class="w-28 h-auto object-cover"
+        loading="eager"
+      />
+    </a
+    >
+  </div>
 
   <nav class="relative flex h-14 items-center px-5">
     {pathname === "/" && <a
@@ -29,13 +33,15 @@ const pathname = Astro.url.pathname;
       target="_blank"
       rel="noreferrer noopener nofollow"
       class="corner absolute left-0 top-full size-[8.5rem] bg-gray-800 sm:size-36 md:size-48"
-      ><Image
+    >
+      <Image
         src={import("../../assets/img/akau-tangi.png")}
         width="250"
         alt="Akau Tangi Sports Centre logo"
         class="size-20 md:size-24 lg:size-28"
         loading="eager"
-      /></a
+      />
+    </a
     >}
 
     {pathname === "/" && <a
@@ -51,7 +57,8 @@ const pathname = Astro.url.pathname;
         alt="Uber Eats logo"
         class="mx-auto h-auto w-24 self-center"
         loading="eager"
-      /></a
+      />
+    </a
     >}
 
     <!--<a href="/" class="size-28 rounded-full bg-black  absolute top-1.5 flex items-center justify-center  "
@@ -75,16 +82,16 @@ const pathname = Astro.url.pathname;
                 "group relative z-20 inline-flex rounded-lg mx-2 font-semibold uppercase text-white transition-colors hover:text-white underline-animation before:!h-[3px]",
                 link.href === "/"
                   ? pathname === "/" && "underline-active before:!h-[3px]"
-                  : pathname.startsWith(link.href) && "underline-active",
+                  : pathname.startsWith(link.href) && "underline-active"
               )}
               data-astro-prefetch
             >
               {link.name}
             </a>
 
-           <!-- {link.href === "/"
-              ? pathname === "/" && <OatUnderline />
-              : pathname.startsWith(link.href) && <OatUnderline />}-->
+            <!-- {link.href === "/"
+               ? pathname === "/" && <OatUnderline />
+               : pathname.startsWith(link.href) && <OatUnderline />}-->
           </li>
         ))
       }
