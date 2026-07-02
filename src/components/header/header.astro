@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-import MobileMenu from "./mobile-menu.astro";
+import { Menu } from "./menu.tsx";
 
 import { cn } from "@/lib/utils";
 import { links } from "@/lib/data";
@@ -97,7 +97,7 @@ const pathname = Astro.url.pathname;
   </nav>
 </header>
 
-<MobileMenu />
+<Menu client:visible pathname={pathname} />
 
 <style>
   .corner {
