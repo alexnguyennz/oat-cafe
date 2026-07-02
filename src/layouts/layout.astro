@@ -65,7 +65,7 @@ const { title, full } = Astro.props;
           src={import("../assets/img/google-reviews.png")}
           width="550"
           alt="Google Reviews logo"
-          class="absolute right-0 bottom-0 size-24 -rotate-45 object-contain duration-300 md:size-32"
+          class="absolute right-0 bottom-0 z-10 size-24 -rotate-45 object-contain duration-300 md:size-32"
           loading="eager"
         />
       </div>
@@ -74,6 +74,24 @@ const { title, full } = Astro.props;
     <style>
       .corner {
         clip-path: polygon(100% 100%, 0 100%, 100% 0);
+        transform: translateZ(0);
+        backface-visibility: hidden;
+      }
+
+      .corner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, black, black);
+        background-size: 0% 100%;
+        background-repeat: no-repeat;
+        transition: background-size 0.4s ease;
+        z-index: 1;
+      }
+
+      .corner:hover::before,
+      button:hover .corner::before {
+        background-size: 100% 100%;
       }
     </style>
   </body>
