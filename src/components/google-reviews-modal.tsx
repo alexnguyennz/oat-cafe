@@ -37,8 +37,7 @@ export const GoogleReviewsModal = ({ children }) => {
             <Modal.CloseTrigger />
             <Modal.Body>
               <p className="text-center text-xl text-black">
-                Had a great experience at Oat Café? Don't forget to leave a
-                review!
+                Had a great experience at Oat Café? Leave a review!
               </p>
               <iframe
                 title="Google Reviews"
