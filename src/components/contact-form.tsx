@@ -54,7 +54,7 @@ export const ContactForm = () => {
 
             return null;
           }}
-          className="w-full"
+          className="mb-4.5 w-full"
           name="name"
         >
           <Label className="text-lg text-white">Name</Label>
@@ -64,7 +64,7 @@ export const ContactForm = () => {
               placeholder="Your name"
             />
           </InputGroup>
-          <FieldError className="text-lg" />
+          <FieldError className="text-lg text-white" />
         </TextField>
 
         <TextField
@@ -76,7 +76,7 @@ export const ContactForm = () => {
 
             return null;
           }}
-          className="w-full"
+          className="mb-4.5 w-full"
           name="email"
         >
           <Label className="text-lg text-white">Email address</Label>
@@ -86,7 +86,7 @@ export const ContactForm = () => {
               placeholder="Your email"
             />
           </InputGroup>
-          <FieldError className="text-lg" />
+          <FieldError className="text-lg text-white" />
         </TextField>
 
         <TextField
@@ -98,7 +98,7 @@ export const ContactForm = () => {
 
             return null;
           }}
-          className="w-full"
+          className="mb-4.5 w-full"
           name="message"
         >
           <Label className="text-lg text-white">Message</Label>
@@ -106,13 +106,13 @@ export const ContactForm = () => {
             className="h-32 w-full text-xl"
             placeholder="Your message"
           />
-          <FieldError className="text-lg" />
+          <FieldError className="text-lg text-white" />
         </TextField>
 
         <Button
           type="submit"
           size="lg"
-          className="bg-black pb-0.5 font-serif font-semibold"
+          className="bg-black pb-0.5 font-serif text-lg font-semibold transition duration-300 hover:translate-y-0.5"
         >
           Get in touch
         </Button>

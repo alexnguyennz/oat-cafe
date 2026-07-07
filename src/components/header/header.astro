@@ -25,44 +25,36 @@ const pathname = Astro.url.pathname;
   </a>
 
   <nav class="relative flex items-center justify-center pb-3">
-    {
-      pathname === "/" && (
-        <a
-          href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
-          target="_blank"
-          rel="noreferrer noopener nofollow"
-          class="corner absolute top-full left-0 -mt-px size-34 overflow-hidden bg-gray-800 sm:size-36 md:size-48"
-        >
-          <Image
-            src={import("../../assets/img/akau-tangi.png")}
-            width="250"
-            alt="Akau Tangi Sports Centre logo"
-            class="relative z-10 size-20 md:size-24 lg:size-28"
-            loading="eager"
-          />
-        </a>
-      )
-    }
+    <a
+      href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
+      target="_blank"
+      rel="noreferrer noopener nofollow"
+      class="absolute top-full left-3 mt-3 duration-300 hover:translate-y-0.5"
+    >
+      <Image
+        src={import("../../assets/img/akau-tangi-no-padding.png")}
+        width="250"
+        alt="Akau Tangi Sports Centre logo"
+        class="relative z-10 w-20 md:w-26 xl:w-32"
+        loading="eager"
+      />
+    </a>
 
-    {
-      pathname === "/" && (
-        <a
-          href="https://www.ubereats.com/nz/store/oat-cafe/Wm4KrAvQTueBU13tp67w7Q"
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-          class="absolute top-full right-3 mt-3 duration-300 hover:translate-y-0.5"
-        >
-          <Image
-            id="logo"
-            src={import("../../assets/img/uber/uber-eats-2.png")}
-            width="350"
-            alt="Uber Eats logo"
-            class="mx-auto h-auto w-32 self-center"
-            loading="eager"
-          />
-        </a>
-      )
-    }
+    <a
+      href="https://www.ubereats.com/nz/store/oat-cafe/Wm4KrAvQTueBU13tp67w7Q"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      class="absolute top-full right-3 mt-3 duration-300 hover:translate-y-0.5"
+    >
+      <Image
+        id="logo"
+        src={import("../../assets/img/uber/uber-eats-2.png")}
+        width="350"
+        alt="Uber Eats logo"
+        class="mx-auto h-auto w-32 self-center xl:w-40"
+        loading="eager"
+      />
+    </a>
 
     <ul class="hidden gap-3 text-lg md:flex">
       {
@@ -103,11 +95,7 @@ const pathname = Astro.url.pathname;
     content: "";
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(
-      to top left,
-      black 50%,
-      transparent 50%
-    );
+    background-image: linear-gradient(to top left, black 50%, transparent 50%);
     background-size: 200% 200%;
     background-position: 0% 0%;
     background-repeat: no-repeat;
