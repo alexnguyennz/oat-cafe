@@ -112,7 +112,7 @@ export const ContactForm = () => {
         <Button
           type="submit"
           size="lg"
-          className="bg-white pb-1 font-serif font-semibold text-black"
+          className="bg-black pb-0.5 font-serif font-semibold"
         >
           Get in touch
         </Button>
