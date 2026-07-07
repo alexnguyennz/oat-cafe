@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-import { Menu } from "./menu.tsx";
+import { MobileMenu } from "./mobile-menu.tsx";
 
 import { cn } from "@/lib/utils";
 import { links } from "@/lib/data";
@@ -9,95 +9,102 @@ import { links } from "@/lib/data";
 const pathname = Astro.url.pathname;
 ---
 
-<header transition:animate="none" class="font-serif sticky top-0 z-40 w-full bg-black text-white backdrop-blur-lg">
+<header
+  transition:animate="none"
+  class="sticky top-0 z-40 w-full bg-black font-serif text-white"
+>
   <div class="flex justify-center py-3">
-    <a href="/" class="inline-block"
-    >
+    <a href="/" class="inline-block">
       <Image
         id="logo"
         src={import("../../assets/img/logo.png")}
         width="250"
         alt="Oat Café logo"
-        class="w-28 h-auto object-cover"
+        class="h-auto w-28 object-cover"
         loading="eager"
       />
-    </a
-    >
+    </a>
   </div>
 
   <nav class="relative flex h-14 items-center px-5">
-    {pathname === "/" && <a
-      href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
-      target="_blank"
-      rel="noreferrer noopener nofollow"
-      class="corner absolute left-0 top-full size-[8.5rem] bg-gray-800 sm:size-36 md:size-48"
+    {
+      pathname === "/" && (
+        <a
+          href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
+          target="_blank"
+          rel="noreferrer noopener nofollow"
+          class="corner absolute top-full left-0 size-[8.5rem] bg-gray-800 sm:size-36 md:size-48"
+        >
+          <Image
+            src={import("../../assets/img/akau-tangi.png")}
+            width="250"
+            alt="Akau Tangi Sports Centre logo"
+            class="size-20 md:size-24 lg:size-28"
+            loading="eager"
+          />
+        </a>
+      )
+    }
+
+    {
+      pathname === "/" && (
+        <a
+          href="https://www.ubereats.com/nz/store/oat-cafe/Wm4KrAvQTueBU13tp67w7Q"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          class="absolute top-20 right-5"
+        >
+          <Image
+            id="logo"
+            src={import("../../assets/img/uber/uber-eats.png")}
+            width="350"
+            alt="Uber Eats logo"
+            class="mx-auto h-auto w-24 self-center"
+            loading="eager"
+          />
+        </a>
+      )
+    }
+
+    <ul
+      class="left-1/2 hidden -translate-x-1/2 gap-2 text-lg md:absolute md:flex"
     >
-      <Image
-        src={import("../../assets/img/akau-tangi.png")}
-        width="250"
-        alt="Akau Tangi Sports Centre logo"
-        class="size-20 md:size-24 lg:size-28"
-        loading="eager"
-      />
-    </a
-    >}
-
-    {pathname === "/" && <a
-      href="https://www.ubereats.com/nz/store/oat-cafe/Wm4KrAvQTueBU13tp67w7Q"
-      target="_blank"
-      rel="noopener noreferrer nofollow"
-      class="absolute top-20 right-5"
-    >
-      <Image
-        id="logo"
-        src={import("../../assets/img/uber/uber-eats.png")}
-        width="350"
-        alt="Uber Eats logo"
-        class="mx-auto h-auto w-24 self-center"
-        loading="eager"
-      />
-    </a
-    >}
-
-    <!--<a href="/" class="size-28 rounded-full bg-black  absolute top-1.5 flex items-center justify-center  "
-      ><Image
-        id="logo"
-        src={import("../../assets/img/logo.png")}
-        width="250"
-        alt="Oat Café logo"
-        class="mx-auto w-20 h-auto object-cover"
-        loading="eager"
-      /></a
-    >-->
-
-    <ul class="absolute left-1/2 flex -translate-x-1/2 gap-2 text-lg">
       {
         links.map((link) => (
-          <li class="relative">
+          <li>
             <a
               href={link.href}
               class={cn(
-                "group relative z-20 inline-flex rounded-lg mx-2 font-semibold uppercase text-white transition-colors hover:text-white underline-animation before:!h-[3px]",
+                "group underline-animation relative z-20 mx-2 inline-flex rounded-lg font-semibold text-white uppercase transition-colors before:h-0.75! hover:text-white",
                 link.href === "/"
-                  ? pathname === "/" && "underline-active before:!h-[3px]"
-                  : pathname.startsWith(link.href) && "underline-active"
+                  ? pathname === "/" && "underline-active before:h-0.75!"
+                  : pathname.startsWith(link.href) && "underline-active",
               )}
               data-astro-prefetch
             >
               {link.name}
             </a>
-
-            <!-- {link.href === "/"
-               ? pathname === "/" && <OatUnderline />
-               : pathname.startsWith(link.href) && <OatUnderline />}-->
           </li>
         ))
       }
     </ul>
+
+    <MobileMenu client:visible pathname={pathname}>
+      <!--<div class="flex justify-center py-3">
+                          <a href="/" class="inline-block">
+                            <Image
+                              id="logo"
+                              src={import("../../assets/img/logo.png")}
+                              width="250"
+                              alt="Oat Café logo"
+                              class="h-auto w-28 object-cover"
+                              loading="eager"
+                            />
+                          </a>
+                        </div>-->
+    </MobileMenu>
   </nav>
 </header>
-
-<Menu client:visible pathname={pathname} />
 
 <style>
   .corner {
