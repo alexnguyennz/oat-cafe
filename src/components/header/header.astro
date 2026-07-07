@@ -13,20 +13,18 @@ const pathname = Astro.url.pathname;
   transition:animate="none"
   class="sticky top-0 z-40 w-full bg-black font-serif text-white"
 >
-  <div class="flex justify-center py-3">
-    <a href="/" class="inline-block">
-      <Image
-        id="logo"
-        src={import("../../assets/img/logo.png")}
-        width="250"
-        alt="Oat Café logo"
-        class="h-auto w-28 object-cover"
-        loading="eager"
-      />
-    </a>
-  </div>
+  <a href="/" class="my-3 flex justify-center">
+    <Image
+      id="logo"
+      src={import("../../assets/img/logo.png")}
+      width="250"
+      alt="Oat Café logo"
+      class="h-auto w-28 object-cover"
+      loading="eager"
+    />
+  </a>
 
-  <nav class="relative flex items-center justify-center px-5 md:h-14">
+  <nav class="relative flex items-center justify-center pb-3">
     {
       pathname === "/" && (
         <a
