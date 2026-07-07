@@ -8,13 +8,9 @@ import Layout from "../layouts/layout.astro";
 
 <Layout title="Menu">
   <div class="grid flex-1 items-center gap-6 pt-24 text-white md:grid-cols-2">
-    <div class="space-y-6">
-      <h2 class="font-serif text-4xl text-shadow-lg">
-        Love the food but hate the wait?
-      </h2>
-
-      <h2 class="font-serif text-4xl text-shadow-lg">
-        Order on Uber Eats and skip the line!
+    <div class="space-y-6 p-5">
+      <h2 class="bg-black/50 p-3 font-serif text-2xl text-shadow-lg">
+        Love the food but hate the wait? Order on Uber Eats and skip the line!
       </h2>
 
       <div class="flex justify-center">
@@ -22,30 +18,28 @@ import Layout from "../layouts/layout.astro";
           href="https://www.ubereats.com/nz/store/oat-cafe/Wm4KrAvQTueBU13tp67w7Q"
           target="_blank"
           rel="noopener noreferrer nofollow"
+          class="duration-300 hover:translate-y-0.5"
         >
           <Image
             id="logo"
-            src={import("../assets/img/uber/uber-eats.png")}
+            src={import("../assets/img/uber/uber-eats-2.png")}
             width="350"
             alt="Uber Eats logo"
-            class="mx-auto h-auto w-42 self-center"
+            class="mx-auto h-auto w-56"
             loading="eager"
           />
         </a>
       </div>
     </div>
 
-    <div>
-      <div class="flex justify-center bg-black p-12">
-        <a href="/menu.jpg" class="w-full">
-          <Button
-            size="lg"
-            fullWidth={true}
-            className="h-12 w-32 w-full rounded-none border bg-black font-serif text-xl text-white"
-            >Menu
-          </Button>
-        </a>
-      </div>
+    <div class="flex w-full justify-center">
+      <a href="/menu.jpg">
+        <Button
+          size="lg"
+          className="h-12 w-32 bg-black font-serif text-xl text-white"
+          >Menu
+        </Button>
+      </a>
     </div>
   </div>
 </Layout>
