@@ -50,7 +50,7 @@ const pathname = Astro.url.pathname;
           href="https://www.ubereats.com/nz/store/oat-cafe/Wm4KrAvQTueBU13tp67w7Q"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          class="absolute top-full right-3 mt-3"
+          class="absolute top-full right-3 mt-3 duration-300 hover:translate-y-0.5"
         >
           <Image
             id="logo"
@@ -71,7 +71,7 @@ const pathname = Astro.url.pathname;
             <a
               href={link.href}
               class={cn(
-                "relative isolate z-20 inline-flex overflow-hidden px-2 py-1 font-semibold uppercase transition-colors",
+                "relative isolate z-20 inline-flex overflow-hidden rounded-lg px-2 py-0.5 font-semibold uppercase transition-colors",
                 "text-white before:absolute before:inset-x-0 before:bottom-0 before:z-0 before:h-0 before:bg-white before:content-['']",
                 "before:transition-[height] before:duration-200 before:ease-out hover:text-black hover:before:h-full",
                 link.href === "/"
