@@ -82,16 +82,21 @@ const { title, full } = Astro.props;
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(to right, black, black);
-        background-size: 0% 100%;
+        background-image: linear-gradient(
+          to bottom right,
+          black 50%,
+          transparent 50%
+        );
+        background-size: 200% 200%;
+        background-position: 100% 100%;
         background-repeat: no-repeat;
-        transition: background-size 0.4s ease;
+        transition: background-position 0.4s ease;
         z-index: 1;
       }
 
       .corner:hover::before,
       button:hover .corner::before {
-        background-size: 100% 100%;
+        background-position: 0% 0%;
       }
     </style>
   </body>
