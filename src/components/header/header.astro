@@ -31,13 +31,13 @@ const pathname = Astro.url.pathname;
           href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre"
           target="_blank"
           rel="noreferrer noopener nofollow"
-          class="corner absolute top-full left-0 -mt-px size-34 bg-gray-800 sm:size-36 md:size-48"
+          class="corner absolute top-full left-0 -mt-px size-34 overflow-hidden bg-gray-800 sm:size-36 md:size-48"
         >
           <Image
             src={import("../../assets/img/akau-tangi.png")}
             width="250"
             alt="Akau Tangi Sports Centre logo"
-            class="size-20 md:size-24 lg:size-28"
+            class="relative z-10 size-20 md:size-24 lg:size-28"
             loading="eager"
           />
         </a>
@@ -92,5 +92,24 @@ const pathname = Astro.url.pathname;
 <style>
   .corner {
     clip-path: polygon(0 0, 0% 100%, 100% 0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .corner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, black, black);
+    background-position: right;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s ease;
+    z-index: 1;
+  }
+
+  .corner:hover::before,
+  button:hover .corner::before {
+    background-size: 100% 100%;
   }
 </style>
