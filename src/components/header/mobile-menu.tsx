@@ -4,21 +4,17 @@ import { Button, Link, cn } from "@heroui/react";
 
 import { links } from "@/lib/data";
 
-export const MobileMenu = ({
-  pathname,
-  children,
-}: {
-  pathname: string;
-  children: React.ReactNode;
-}) => {
+export const MobileMenu = ({ pathname }: { pathname: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <>
-      <nav className="mx-auto flex h-14 items-center justify-between px-5">
-        <div className="flex items-center gap-4">
-          <button
-            className="md:hidden"
+      <nav className="mb-5 flex w-full justify-center md:hidden">
+        <div className="flex gap-4">
+          <Button
+            variant="ghost"
+            isIconOnly
+            className="hover:bg-white/25 md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
@@ -46,17 +42,11 @@ export const MobileMenu = ({
                 />
               )}
             </svg>
-          </button>
-
-          <div className="mx-auto flex items-center justify-center">
-            {children}
-          </div>
+          </Button>
         </div>
-      </nav>
 
-      {isMenuOpen && (
-        <div className="md:hidden">
-          <ul className="flex flex-col gap-2 p-4">
+        {isMenuOpen && (
+          <ul className="mt-5 flex flex-col gap-2">
             {links.map((link) => (
               <li>
                 <a
@@ -74,8 +64,8 @@ export const MobileMenu = ({
               </li>
             ))}
           </ul>
-        </div>
-      )}
+        )}
+      </nav>
     </>
   );
 };

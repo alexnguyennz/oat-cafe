@@ -26,7 +26,7 @@ const pathname = Astro.url.pathname;
     </a>
   </div>
 
-  <nav class="relative flex h-14 items-center px-5">
+  <nav class="relative flex items-center justify-center px-5 md:h-14">
     {
       pathname === "/" && (
         <a
@@ -52,7 +52,7 @@ const pathname = Astro.url.pathname;
           href="https://www.ubereats.com/nz/store/oat-cafe/Wm4KrAvQTueBU13tp67w7Q"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          class="absolute top-20 right-5"
+          class="absolute top-full right-3 mt-3"
         >
           <Image
             id="logo"
@@ -66,9 +66,7 @@ const pathname = Astro.url.pathname;
       )
     }
 
-    <ul
-      class="left-1/2 hidden -translate-x-1/2 gap-2 text-lg md:absolute md:flex"
-    >
+    <ul class="hidden gap-2 text-lg md:flex">
       {
         links.map((link) => (
           <li>
@@ -89,20 +87,7 @@ const pathname = Astro.url.pathname;
       }
     </ul>
 
-    <MobileMenu client:visible pathname={pathname}>
-      <!--<div class="flex justify-center py-3">
-                                                              <a href="/" class="inline-block">
-                                                                <Image
-                                                                  id="logo"
-                                                                  src={import("../../assets/img/logo.png")}
-                                                                  width="250"
-                                                                  alt="Oat Café logo"
-                                                                  class="h-auto w-28 object-cover"
-                                                                  loading="eager"
-                                                                />
-                                                              </a>
-                                                            </div>-->
-    </MobileMenu>
+    <MobileMenu client:visible pathname={pathname} />
   </nav>
 </header>
 
