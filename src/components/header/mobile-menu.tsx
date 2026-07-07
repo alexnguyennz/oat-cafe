@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 import { Button, cn } from "@heroui/react";
 
@@ -6,6 +6,22 @@ import { links } from "@/lib/data";
 
 export const MobileMenu = ({ pathname }: { pathname: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuHeight, setMenuHeight] = useState(0);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const element = contentRef.current;
+    if (!element) return;
+
+    const updateHeight = () => setMenuHeight(element.scrollHeight);
+
+    updateHeight();
+
+    const resizeObserver = new ResizeObserver(updateHeight);
+    resizeObserver.observe(element);
+
+    return () => resizeObserver.disconnect();
+  }, [pathname]);
 
   return (
     <nav className="flex w-full flex-col items-center md:hidden">
@@ -37,29 +53,41 @@ export const MobileMenu = ({ pathname }: { pathname: string }) => {
         </svg>
       </Button>
 
-      {isMenuOpen && (
-        <ul className="mt-3 flex w-full flex-col items-center gap-2">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className={cn(
-                  "relative isolate z-20 inline-flex overflow-hidden px-2 py-0.5 font-semibold uppercase transition-colors",
-                  "text-white before:absolute before:inset-x-0 before:bottom-0 before:z-0 before:h-0 before:bg-white before:content-['']",
-                  "before:transition-[height] before:duration-200 before:ease-out hover:text-black hover:before:h-full",
-                  link.href === "/"
-                    ? pathname === "/" && "bg-white text-black before:h-full"
-                    : pathname.startsWith(link.href) &&
-                        "bg-white text-black before:h-full",
-                )}
-                data-astro-prefetch
-              >
-                <span className="relative z-10">{link.name}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div
+        className="w-full overflow-hidden transition-[height] duration-300 ease-in-out"
+        style={{ height: isMenuOpen ? menuHeight : 0 }}
+        aria-hidden={!isMenuOpen}
+      >
+        <div ref={contentRef}>
+          <ul
+            className={cn(
+              "flex w-full flex-col items-center gap-2 pt-3",
+              !isMenuOpen && "pointer-events-none",
+            )}
+          >
+            {links.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  tabIndex={isMenuOpen ? undefined : -1}
+                  className={cn(
+                    "relative isolate z-20 inline-flex overflow-hidden px-2 py-0.5 font-semibold uppercase transition-colors",
+                    "text-white before:absolute before:inset-x-0 before:bottom-0 before:z-0 before:h-0 before:bg-white before:content-['']",
+                    "before:transition-[height] before:duration-200 before:ease-out hover:text-black hover:before:h-full",
+                    link.href === "/"
+                      ? pathname === "/" && "bg-white text-black before:h-full"
+                      : pathname.startsWith(link.href) &&
+                          "bg-white text-black before:h-full",
+                  )}
+                  data-astro-prefetch
+                >
+                  <span className="relative z-10">{link.name}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </nav>
   );
 };
