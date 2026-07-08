@@ -59,10 +59,7 @@ export const ContactForm = () => {
         >
           <Label className="text-lg text-white">Name</Label>
           <InputGroup>
-            <InputGroup.Input
-              className="w-full text-xl"
-              placeholder="Your name"
-            />
+            <InputGroup.Input className="w-full text-lg" />
           </InputGroup>
           <FieldError className="text-lg text-white" />
         </TextField>
@@ -81,10 +78,7 @@ export const ContactForm = () => {
         >
           <Label className="text-lg text-white">Email address</Label>
           <InputGroup>
-            <InputGroup.Input
-              className="w-full text-xl"
-              placeholder="Your email"
-            />
+            <InputGroup.Input className="w-full text-xl" />
           </InputGroup>
           <FieldError className="text-lg text-white" />
         </TextField>
@@ -102,10 +96,7 @@ export const ContactForm = () => {
           name="message"
         >
           <Label className="text-lg text-white">Message</Label>
-          <TextArea
-            className="h-32 w-full text-xl"
-            placeholder="Your message"
-          />
+          <TextArea className="h-32 w-full text-lg" />
           <FieldError className="text-lg text-white" />
         </TextField>
 

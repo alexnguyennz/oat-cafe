@@ -33,7 +33,9 @@ export const CateringForm = () => {
 
       form.reset();
 
-      toast.success("We'll get back to you soon!");
+      toast.success(
+        "One of our team members will review your booking and be in contact with you shortly.",
+      );
     } catch {
       toast.danger("An error occurred. Please try again.");
     }
@@ -42,7 +44,7 @@ export const CateringForm = () => {
   return (
     <>
       <Toast.Provider />
-      <Form onSubmit={onSubmit} className="space-y-6 font-serif">
+      <Form onSubmit={onSubmit} className="space-y-6">
         <input type="hidden" name="form-name" value="contact" />
 
         <TextField
@@ -57,9 +59,9 @@ export const CateringForm = () => {
           className="w-full"
           name="name"
         >
-          <Label className="text-lg text-amber-50">Full Name</Label>
-          <InputGroup className="bg-neutral-900 text-amber-50">
-            <InputGroup.Input className="w-full text-xl" />
+          <Label className="text-accent-lightYellow text-lg">Name</Label>
+          <InputGroup className="text-accent-lightYellow rounded-none bg-neutral-900">
+            <InputGroup.Input className="w-full text-lg" />
           </InputGroup>
           <FieldError className="text-lg" />
         </TextField>
@@ -77,10 +79,18 @@ export const CateringForm = () => {
           name="email"
         >
           <Label className="text-lg text-white">Email address</Label>
-          <InputGroup>
-            <InputGroup.Input className="w-full text-xl" />
+          <InputGroup className="text-accent-lightYellow rounded-none bg-neutral-900">
+            <InputGroup.Input className="w-full text-lg" />
           </InputGroup>
           <FieldError className="text-lg" />
+        </TextField>
+
+        <TextField className="mb-4.5 w-full" name="phone-number">
+          <Label className="text-lg text-white">Phone Number</Label>
+          <InputGroup className="text-accent-lightYellow rounded-none bg-neutral-900">
+            <InputGroup.Input className="w-full text-lg" />
+          </InputGroup>
+          <FieldError className="text-lg text-white" />
         </TextField>
 
         <TextField
@@ -99,16 +109,16 @@ export const CateringForm = () => {
             Any other requirements. (Please note any additional requests are
             subject to approval)
           </Label>
-          <TextArea className="h-32 w-full text-xl" />
+          <TextArea className="h-32 w-full text-lg" />
           <FieldError className="text-lg" />
         </TextField>
 
         <Button
           type="submit"
           size="lg"
-          className="bg-white pb-1.5 font-serif text-xl font-semibold text-black"
+          className="bg-white pb-0.5 font-serif text-lg font-semibold text-black"
         >
-          Get in touch
+          Reserve my spot
         </Button>
       </Form>
     </>
