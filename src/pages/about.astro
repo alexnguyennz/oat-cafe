@@ -34,15 +34,15 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
         class="mx-auto max-w-4xl space-y-6 rounded-3xl bg-white p-10 text-black"
       >
         <h2
-          class="text-primary-brown text-center font-serif text-6xl font-medium"
+          class="text-primary-brown text-center font-serif text-4xl font-bold"
         >
-          Our dedication to <span class="underline underline-offset-18"
+          Our dedication to <span class="underline underline-offset-10"
             >you</span
           >
         </h2>
 
         <p
-          class="text-primary-brown/75 mx-auto max-w-5xl text-center font-serif text-4xl leading-12 font-medium"
+          class="text-primary-brown/75 mx-auto max-w-5xl text-center font-serif text-3xl font-medium"
         >
           At Oat Café, we pride ourselves on being more than just a place to
           grab a quick bite — we are a family-friendly and child-friendly
@@ -58,7 +58,7 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
     >
       <h2
         id="venue"
-        class="text-center font-serif text-6xl font-medium text-balance text-white text-shadow-lg"
+        class="text-center font-serif text-4xl font-bold text-balance text-white text-shadow-lg"
       >
         View our venue
       </h2>
@@ -67,18 +67,32 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
     </div>
   </section>
 
-  <div class="bg-accent-yellow/10 relative py-12">
+  <div class="bg-accent-lightYellow relative py-12">
     <div
       class="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col justify-center gap-6 self-center rounded-3xl px-5 text-black xl:max-w-7xl"
     >
-      <h2
-        class="text-center font-serif text-6xl font-medium text-balance text-black"
-      >
-        Proudly owned by Yellow Seat - stick logo here
-      </h2>
+      <div class="flex flex-col items-center justify-center gap-6 md:flex-row">
+        <h2
+          class="text-center font-serif text-4xl font-bold text-black md:text-balance"
+        >
+          Proudly owned by Yellow Seat
+        </h2>
+
+        <a href="https://theseats.co.nz" target="_blank">
+          <Image
+            id="logo"
+            src={import("../assets/img/yellowseat-chair.png")}
+            width="250"
+            alt="Yellow Seat logo"
+            class="h-auto w-24 object-cover"
+            loading="eager"
+          />
+        </a>
+      </div>
+
       <div class="max-w-3xl space-y-6 rounded-3xl bg-neutral-800 p-10">
         <p
-          class="mx-auto max-w-5xl font-serif text-4xl leading-12 font-medium text-balance text-white"
+          class="mx-auto max-w-5xl font-serif text-3xl font-medium text-balance text-white"
         >
           Yellow Seat was founded out of a love of cuisine, our passion for
           service, and a drive to excel in the industry. We take great pleasure

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@heroui/styles";
+
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -17,6 +18,7 @@
   --color-accent-red: #d4413b;
   --color-tertiary-yellow: #bb832b;
   --color-accent-yellow: #efaa1f;
+  --color-accent-lightYellow: #fdf6e8;
   --color-tertiary-purple: #1f0e23;
   --color-accent-purple: #471651;
 }
