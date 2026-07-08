@@ -63,9 +63,7 @@ export const CateringForm = () => {
         <TextField
           isRequired
           validate={(value) => {
-            if (value.length === 0) {
-              return "Please enter a name.";
-            }
+            if (value.length === 0) return "Please enter a name.";
 
             return null;
           }}
@@ -82,9 +80,8 @@ export const CateringForm = () => {
         <TextField
           isRequired
           validate={(value) => {
-            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
+            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value))
               return "Please enter a valid email address.";
-            }
 
             return null;
           }}
@@ -270,14 +267,13 @@ export const CateringForm = () => {
         <NumberField
           isRequired
           validate={(value) => {
-            if (value <= 0) {
-              return "Please enter number of guests.";
-            }
+            if (value <= 0) return "Please enter number of guests.";
 
             return null;
           }}
-          className="mb-4.5 w-full"
           name="guests"
+          minValue={1}
+          className="mb-4.5 w-full"
         >
           <Label className="text-lg text-white">Number of guests</Label>
           <NumberField.Group className="h-11 rounded-none bg-neutral-900 text-white">

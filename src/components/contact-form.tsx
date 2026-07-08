@@ -48,9 +48,7 @@ export const ContactForm = () => {
         <TextField
           isRequired
           validate={(value) => {
-            if (value.length === 0) {
-              return "Please enter a name.";
-            }
+            if (value.length === 0) return "Please enter a name.";
 
             return null;
           }}
@@ -61,15 +59,14 @@ export const ContactForm = () => {
           <InputGroup className="rounded-none bg-neutral-900 text-white">
             <InputGroup.Input className="w-full text-lg" />
           </InputGroup>
-          <FieldError className="text-lg text-white" />
+          <FieldError className="text-lg" />
         </TextField>
 
         <TextField
           isRequired
           validate={(value) => {
-            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
+            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value))
               return "Please enter a valid email address.";
-            }
 
             return null;
           }}
@@ -80,15 +77,13 @@ export const ContactForm = () => {
           <InputGroup className="rounded-none bg-neutral-900 text-white">
             <InputGroup.Input className="w-full text-xl" />
           </InputGroup>
-          <FieldError className="text-lg text-white" />
+          <FieldError className="text-lg" />
         </TextField>
 
         <TextField
           isRequired
           validate={(value) => {
-            if (value.length === 0) {
-              return "Please enter a message.";
-            }
+            if (value.length === 0) return "Please enter a message.";
 
             return null;
           }}
