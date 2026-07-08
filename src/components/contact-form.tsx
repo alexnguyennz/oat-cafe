@@ -103,7 +103,7 @@ export const ContactForm = () => {
         <Button
           type="submit"
           size="lg"
-          className="bg-black pb-0.5 font-serif text-lg font-semibold transition duration-300 hover:translate-y-0.5"
+          className="bg-black pb-0.5 font-serif font-bold transition duration-300 hover:translate-y-0.5"
         >
           Get in touch
         </Button>
