@@ -4,13 +4,53 @@ import {
   InputGroup,
   TextField,
   TextArea,
+  Calendar,
+  DateField,
+  DatePicker,
+  TimeField,
   Toast,
   toast,
   Label,
   Button,
+  type TimeValue,
 } from "@heroui/react";
+import {
+  getLocalTimeZone,
+  parseDate,
+  parseZonedDateTime,
+  type DateValue,
+} from "@internationalized/date";
+
+import { useMemo, useState } from "react";
+
+type Granularity = "day" | "hour" | "minute" | "second";
+type HourCycle = 12 | 24;
+const granularityOptions: { label: string; value: Granularity }[] = [
+  { label: "Day", value: "day" },
+  { label: "Hour", value: "hour" },
+  { label: "Minute", value: "minute" },
+  { label: "Second", value: "second" },
+];
+const hourCycleOptions: { label: string; value: HourCycle }[] = [
+  { label: "12-hour", value: 12 },
+  { label: "24-hour", value: 24 },
+];
 
 export const CateringForm = () => {
+  const [granularity, setGranularity] = useState<Granularity>("minute");
+  const [hourCycle, setHourCycle] = useState<HourCycle>(12);
+  const [hideTimeZone, setHideTimeZone] = useState(false);
+  const [shouldForceLeadingZeros, setShouldForceLeadingZeros] = useState(false);
+  const timeGranularity = granularity !== "day" ? granularity : undefined;
+  const showTimeField = !!timeGranularity;
+  const defaultValue = useMemo<DateValue>(() => {
+    const localTimeZone = getLocalTimeZone();
+    if (granularity === "day") {
+      return parseDate("2026-02-03");
+    }
+    return parseZonedDateTime(`2026-02-03T08:45:00[${localTimeZone}]`);
+  }, [granularity]);
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -56,11 +96,11 @@ export const CateringForm = () => {
 
             return null;
           }}
-          className="w-full"
+          className="mb-4.5 w-full"
           name="name"
         >
-          <Label className="text-accent-lightYellow text-lg">Name</Label>
-          <InputGroup className="text-accent-lightYellow rounded-none bg-neutral-900">
+          <Label className="text-lg text-white">Name</Label>
+          <InputGroup className="rounded-none bg-neutral-900 text-white">
             <InputGroup.Input className="w-full text-lg" />
           </InputGroup>
           <FieldError className="text-lg" />
@@ -75,41 +115,120 @@ export const CateringForm = () => {
 
             return null;
           }}
-          className="w-full"
+          className="mb-4.5 w-full"
           name="email"
         >
           <Label className="text-lg text-white">Email address</Label>
-          <InputGroup className="text-accent-lightYellow rounded-none bg-neutral-900">
+          <InputGroup className="rounded-none bg-neutral-900 text-white">
             <InputGroup.Input className="w-full text-lg" />
           </InputGroup>
           <FieldError className="text-lg" />
         </TextField>
 
         <TextField className="mb-4.5 w-full" name="phone-number">
-          <Label className="text-lg text-white">Phone Number</Label>
-          <InputGroup className="text-accent-lightYellow rounded-none bg-neutral-900">
+          <Label className="text-lg text-white">Phone number</Label>
+          <InputGroup className="rounded-none bg-neutral-900 text-white">
             <InputGroup.Input className="w-full text-lg" />
           </InputGroup>
           <FieldError className="text-lg text-white" />
         </TextField>
 
-        <TextField
+        <DatePicker
           isRequired
-          validate={(value) => {
+          key={granularity}
+          className="w-full"
+          defaultValue={defaultValue}
+          granularity={granularity}
+          hideTimeZone={true}
+          hourCycle={hourCycle}
+          name="date"
+          shouldForceLeadingZeros={true}
+        >
+          {({ state }) => (
+            <>
+              <Label className="text-lg text-white">
+                Date and time of booking
+              </Label>
+              <DateField.Group
+                fullWidth
+                className="rounded-none bg-neutral-900 text-white"
+              >
+                <DateField.Input className="w-full text-lg">
+                  {(segment) => <DateField.Segment segment={segment} />}
+                </DateField.Input>
+                <DateField.Suffix>
+                  <DatePicker.Trigger>
+                    <DatePicker.TriggerIndicator />
+                  </DatePicker.Trigger>
+                </DateField.Suffix>
+              </DateField.Group>
+              <DatePicker.Popover className="flex flex-col gap-3">
+                <Calendar aria-label="Event date">
+                  <Calendar.Header>
+                    <Calendar.YearPickerTrigger>
+                      <Calendar.YearPickerTriggerHeading />
+                      <Calendar.YearPickerTriggerIndicator />
+                    </Calendar.YearPickerTrigger>
+                    <Calendar.NavButton slot="previous" />
+                    <Calendar.NavButton slot="next" />
+                  </Calendar.Header>
+                  <Calendar.Grid>
+                    <Calendar.GridHeader>
+                      {(day) => (
+                        <Calendar.HeaderCell>{day}</Calendar.HeaderCell>
+                      )}
+                    </Calendar.GridHeader>
+                    <Calendar.GridBody>
+                      {(date) => <Calendar.Cell date={date} />}
+                    </Calendar.GridBody>
+                  </Calendar.Grid>
+                  <Calendar.YearPickerGrid>
+                    <Calendar.YearPickerGridBody>
+                      {({ year }) => <Calendar.YearPickerCell year={year} />}
+                    </Calendar.YearPickerGridBody>
+                  </Calendar.YearPickerGrid>
+                </Calendar>
+                {!!showTimeField && (
+                  <div className="flex items-center justify-between">
+                    <Label>Time</Label>
+                    <TimeField
+                      aria-label="Time"
+                      granularity={timeGranularity}
+                      hideTimeZone={true}
+                      hourCycle={hourCycle}
+                      name="time"
+                      shouldForceLeadingZeros={shouldForceLeadingZeros}
+                      value={state.timeValue}
+                      onChange={(v) => state.setTimeValue(v as TimeValue)}
+                    >
+                      <TimeField.Group variant="secondary">
+                        <TimeField.Input>
+                          {(segment) => <TimeField.Segment segment={segment} />}
+                        </TimeField.Input>
+                      </TimeField.Group>
+                    </TimeField>
+                  </div>
+                )}
+              </DatePicker.Popover>
+            </>
+          )}
+        </DatePicker>
+
+        <TextField
+          /*validate={(value) => {
             if (value.length === 0) {
               return "Please enter a message.";
             }
 
             return null;
-          }}
-          className="w-full"
+          }}*/
+          className="mb-4.5 w-full"
           name="message"
         >
           <Label className="text-lg text-white">
-            Any other requirements. (Please note any additional requests are
-            subject to approval)
+            Any other requirements (additional requests subject to approval)
           </Label>
-          <TextArea className="h-32 w-full text-lg" />
+          <TextArea className="text-accent-lightYellow h-32 w-full rounded-none bg-neutral-900 text-lg" />
           <FieldError className="text-lg" />
         </TextField>
 
