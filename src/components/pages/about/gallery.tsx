@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, type SwiperClass } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 
@@ -78,17 +78,18 @@ export const Gallery = () => {
           <SwiperSlide key={index}>
             <img
               src={image}
+              alt={`Gallery image ${index + 1}`}
               onClick={() => {
-                const swiper = swiperRef.current;
+                if (swiperRef.current) {
+                  const swiper: SwiperClass = swiperRef.current;
 
-                if (!swiper) return;
-
-                // Only allow fullscreen for active slides
-                if (swiper.realIndex === index) {
-                  lgRef.current?.openGallery(index);
+                  // Only allow fullscreen for active slides
+                  if (swiper.realIndex === index) {
+                    lgRef.current?.openGallery(index);
+                  }
                 }
               }}
-              className="h-[350px] w-full object-cover"
+              className="h-87.5 w-full object-cover"
             />
           </SwiperSlide>
         ))}
