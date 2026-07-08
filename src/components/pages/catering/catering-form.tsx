@@ -188,6 +188,11 @@ export const CateringForm = () => {
 
         <CheckboxGroup name="allergens" className="space-y-3">
           <Label className="text-lg text-white">Allergens</Label>
+          <Description className="text-base text-white">
+            We use products containing common allergens. For enquiries about
+            whether our food is suitable for you, please contact our friendly
+            staff.
+          </Description>
           <Checkbox value="gluten-free">
             <Checkbox.Content className="text-lg text-white">
               <Checkbox.Control className="pb-1">
@@ -220,16 +225,21 @@ export const CateringForm = () => {
               Lactose-free
             </Checkbox.Content>
           </Checkbox>
-
-          <Description className="text-base text-white">
-            We use products containing common allergens. For enquiries about
-            whether our food is suitable for you, please contact our friendly
-            staff.
-          </Description>
         </CheckboxGroup>
 
         <Select isRequired placeholder="Select venue">
           <Label className="text-lg text-white">Venue</Label>
+          <Description className="text-base text-white">
+            Any room bookings must be made separately with{" "}
+            <Link
+              href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre/about-the-sports-centre/facility-and-opening-hours"
+              className="underline-animation text-white no-underline"
+            >
+              Ākau Tangi Sports Centre
+              <Link.Icon className="text-white" />
+            </Link>{" "}
+            before a booking can be made.
+          </Description>
           <Select.Trigger className="rounded-none bg-neutral-900 text-white">
             <Select.Value className="text-lg text-white" />
             <Select.Indicator />
@@ -254,18 +264,6 @@ export const CateringForm = () => {
               </ListBox.Item>
             </ListBox>
           </Select.Popover>
-          <Description className="text-base text-white">
-            Any room bookings must be made separately with{" "}
-            <Link
-              href="https://wellington.govt.nz/recreation/facilities-and-centres/akau-tangi-sports-centre/about-the-sports-centre/facility-and-opening-hours"
-              className="underline-animation text-white no-underline"
-            >
-              Ākau Tangi Sports Centre
-              <Link.Icon className="text-white" />
-            </Link>{" "}
-            before a booking can be made.
-          </Description>
-
           <FieldError className="text-lg" />
         </Select>
 
@@ -287,7 +285,6 @@ export const CateringForm = () => {
             <NumberField.Input className="text-lg" />
             <NumberField.IncrementButton className="text-white" />
           </NumberField.Group>
-
           <FieldError className="text-lg" />
         </NumberField>
 
@@ -315,14 +312,14 @@ export const CateringForm = () => {
 
         <TextField className="mb-4.5 w-full" name="message">
           <Label className="text-lg text-white">Any other requirements</Label>
+          <Description className="text-base text-white">
+            Any additional requests are subject to approval.
+          </Description>
           <TextArea
             rows={4}
             className="text-accent-lightYellow h-32 w-full rounded-none bg-neutral-900 text-lg"
           />
           <FieldError className="text-lg" />
-          <Description className="text-base text-white">
-            Any additional requests are subject to approval.
-          </Description>
         </TextField>
 
         <Button
