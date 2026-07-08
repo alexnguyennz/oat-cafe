@@ -42,7 +42,7 @@ export const ContactForm = () => {
   return (
     <>
       <Toast.Provider />
-      <Form onSubmit={onSubmit} className="space-y-6">
+      <Form onSubmit={onSubmit} className="space-y-6 bg-black p-5">
         <input type="hidden" name="form-name" value="contact" />
 
         <TextField
@@ -58,7 +58,7 @@ export const ContactForm = () => {
           name="name"
         >
           <Label className="text-lg text-white">Name</Label>
-          <InputGroup>
+          <InputGroup className="rounded-none bg-neutral-900 text-white">
             <InputGroup.Input className="w-full text-lg" />
           </InputGroup>
           <FieldError className="text-lg text-white" />
@@ -77,7 +77,7 @@ export const ContactForm = () => {
           name="email"
         >
           <Label className="text-lg text-white">Email address</Label>
-          <InputGroup>
+          <InputGroup className="rounded-none bg-neutral-900 text-white">
             <InputGroup.Input className="w-full text-xl" />
           </InputGroup>
           <FieldError className="text-lg text-white" />
@@ -96,14 +96,14 @@ export const ContactForm = () => {
           name="message"
         >
           <Label className="text-lg text-white">Message</Label>
-          <TextArea className="h-32 w-full text-lg" />
-          <FieldError className="text-lg text-white" />
+          <TextArea className="h-32 w-full rounded-none bg-neutral-900 text-lg text-white" />
+          <FieldError className="text-lg" />
         </TextField>
 
         <Button
           type="submit"
           size="lg"
-          className="bg-black pb-0.5 font-serif font-bold transition duration-300 hover:translate-y-0.5"
+          className="bg-white pb-0.5 font-serif font-bold text-black transition duration-300 hover:translate-y-0.5"
         >
           Get in touch
         </Button>

@@ -135,7 +135,7 @@ export const CateringForm = () => {
                   </DatePicker.Trigger>
                 </DateField.Suffix>
               </DateField.Group>
-              <DatePicker.Popover className="flex flex-col gap-3">
+              <DatePicker.Popover className="flex flex-col gap-3 rounded-none">
                 <Calendar aria-label="Event date">
                   <Calendar.Header>
                     <Calendar.YearPickerTrigger>
@@ -186,22 +186,22 @@ export const CateringForm = () => {
           )}
         </DatePicker>
 
-        <CheckboxGroup name="allergens" className="space-y-3">
+        <CheckboxGroup name="allergens">
           <Label className="text-lg text-white">Allergens</Label>
           <Description className="text-base text-white">
             We use products containing common allergens. For enquiries about
             whether our food is suitable for you, please contact our friendly
             staff.
           </Description>
-          <Checkbox value="gluten-free">
+          <Checkbox value="gluten-free" className="mt-3">
             <Checkbox.Content className="text-lg text-white">
-              <Checkbox.Control className="pb-1">
+              <Checkbox.Control>
                 <Checkbox.Indicator />
               </Checkbox.Control>
               Gluten-free
             </Checkbox.Content>
           </Checkbox>
-          <Checkbox value="vegan">
+          <Checkbox value="vegan" className="mt-3">
             <Checkbox.Content className="text-lg text-white">
               <Checkbox.Control>
                 <Checkbox.Indicator />
@@ -209,7 +209,7 @@ export const CateringForm = () => {
               Vegan
             </Checkbox.Content>
           </Checkbox>
-          <Checkbox value="vegetarian">
+          <Checkbox value="vegetarian" className="mt-3">
             <Checkbox.Content className="text-lg text-white">
               <Checkbox.Control>
                 <Checkbox.Indicator />
@@ -217,7 +217,7 @@ export const CateringForm = () => {
               Vegetarian
             </Checkbox.Content>
           </Checkbox>
-          <Checkbox value="lactose-free">
+          <Checkbox value="lactose-free" className="mt-3">
             <Checkbox.Content className="text-lg text-white">
               <Checkbox.Control>
                 <Checkbox.Indicator />
@@ -244,7 +244,7 @@ export const CateringForm = () => {
             <Select.Value className="text-lg text-white" />
             <Select.Indicator />
           </Select.Trigger>
-          <Select.Popover>
+          <Select.Popover className="rounded-none text-lg text-white">
             <ListBox>
               <ListBox.Item id="in-cafe" textValue="In-cafe">
                 In-cafe
@@ -294,7 +294,7 @@ export const CateringForm = () => {
             <Select.Value className="text-lg text-white" />
             <Select.Indicator />
           </Select.Trigger>
-          <Select.Popover>
+          <Select.Popover className="rounded-none text-lg text-white">
             <ListBox>
               <ListBox.Item id="in-cafe" textValue="In-cafe payment">
                 In-cafe payment
@@ -327,7 +327,7 @@ export const CateringForm = () => {
           size="lg"
           className="bg-white pb-0.5 font-serif font-bold text-black transition duration-300 hover:translate-y-0.5"
         >
-          Reserve my spot
+          Get in touch
         </Button>
       </Form>
     </>
