@@ -14,43 +14,9 @@ import {
   Button,
   type TimeValue,
 } from "@heroui/react";
-import {
-  getLocalTimeZone,
-  parseDate,
-  parseZonedDateTime,
-  type DateValue,
-} from "@internationalized/date";
-
-import { useMemo, useState } from "react";
-
-type Granularity = "day" | "hour" | "minute" | "second";
-type HourCycle = 12 | 24;
-const granularityOptions: { label: string; value: Granularity }[] = [
-  { label: "Day", value: "day" },
-  { label: "Hour", value: "hour" },
-  { label: "Minute", value: "minute" },
-  { label: "Second", value: "second" },
-];
-const hourCycleOptions: { label: string; value: HourCycle }[] = [
-  { label: "12-hour", value: 12 },
-  { label: "24-hour", value: 24 },
-];
+import { now } from "@internationalized/date";
 
 export const CateringForm = () => {
-  const [granularity, setGranularity] = useState<Granularity>("minute");
-  const [hourCycle, setHourCycle] = useState<HourCycle>(12);
-  const [hideTimeZone, setHideTimeZone] = useState(false);
-  const [shouldForceLeadingZeros, setShouldForceLeadingZeros] = useState(false);
-  const timeGranularity = granularity !== "day" ? granularity : undefined;
-  const showTimeField = !!timeGranularity;
-  const defaultValue = useMemo<DateValue>(() => {
-    const localTimeZone = getLocalTimeZone();
-    if (granularity === "day") {
-      return parseDate("2026-02-03");
-    }
-    return parseZonedDateTime(`2026-02-03T08:45:00[${localTimeZone}]`);
-  }, [granularity]);
-
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -135,12 +101,12 @@ export const CateringForm = () => {
 
         <DatePicker
           isRequired
-          key={granularity}
+          key="minute"
           className="w-full"
-          defaultValue={defaultValue}
-          granularity={granularity}
+          defaultValue={now("Pacific/Auckland")}
+          granularity="minute"
           hideTimeZone={true}
-          hourCycle={hourCycle}
+          hourCycle={12}
           name="date"
           shouldForceLeadingZeros={true}
         >
@@ -188,27 +154,26 @@ export const CateringForm = () => {
                     </Calendar.YearPickerGridBody>
                   </Calendar.YearPickerGrid>
                 </Calendar>
-                {!!showTimeField && (
-                  <div className="flex items-center justify-between">
-                    <Label>Time</Label>
-                    <TimeField
-                      aria-label="Time"
-                      granularity={timeGranularity}
-                      hideTimeZone={true}
-                      hourCycle={hourCycle}
-                      name="time"
-                      shouldForceLeadingZeros={shouldForceLeadingZeros}
-                      value={state.timeValue}
-                      onChange={(v) => state.setTimeValue(v as TimeValue)}
-                    >
-                      <TimeField.Group variant="secondary">
-                        <TimeField.Input>
-                          {(segment) => <TimeField.Segment segment={segment} />}
-                        </TimeField.Input>
-                      </TimeField.Group>
-                    </TimeField>
-                  </div>
-                )}
+
+                <div className="flex items-center justify-between">
+                  <Label>Time</Label>
+                  <TimeField
+                    aria-label="Time"
+                    granularity="minute"
+                    hideTimeZone={true}
+                    hourCycle={12}
+                    name="time"
+                    shouldForceLeadingZeros={true}
+                    value={state.timeValue}
+                    onChange={(v) => state.setTimeValue(v as TimeValue)}
+                  >
+                    <TimeField.Group variant="secondary">
+                      <TimeField.Input>
+                        {(segment) => <TimeField.Segment segment={segment} />}
+                      </TimeField.Input>
+                    </TimeField.Group>
+                  </TimeField>
+                </div>
               </DatePicker.Popover>
             </>
           )}
