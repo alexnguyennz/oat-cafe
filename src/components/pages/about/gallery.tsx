@@ -24,8 +24,8 @@ const images = [
 ];
 
 export const Gallery = () => {
-  const swiperRef = useRef(null);
-  const lgRef = useRef(null);
+  const swiperRef = useRef<SwiperClass | null>(null);
+  const lgRef = useRef<any | null>(null);
 
   return (
     <LightGallery
