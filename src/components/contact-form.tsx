@@ -42,7 +42,7 @@ export const ContactForm = () => {
   return (
     <>
       <Toast.Provider />
-      <Form onSubmit={onSubmit} className="space-y-6 bg-black p-5">
+      <Form onSubmit={onSubmit} className="space-y-6 bg-neutral-800 p-5">
         <input type="hidden" name="form-name" value="contact" />
 
         <TextField

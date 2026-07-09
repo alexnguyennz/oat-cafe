@@ -30,7 +30,9 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
         />
       </div>
 
-      <div class="mx-auto max-w-4xl space-y-6 bg-white p-5 text-black">
+      <div
+        class="bg-accent-lightYellow mx-auto max-w-4xl space-y-6 p-5 text-black"
+      >
         <h2
           class="text-primary-brown text-center font-serif text-4xl font-bold"
         >
@@ -54,7 +56,7 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
         </h2>
 
         <p
-          class="text-primary-brown/75 mx-auto max-w-5xl text-center font-serif text-3xl font-medium"
+          class="text-primary-brown/75 mx-auto max-w-5xl text-center font-serif text-2xl"
         >
           At Oat Café, we pride ourselves on being more than just a place to
           grab a quick bite—we're a family-friendly and child-friendly
@@ -90,7 +92,7 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
           Proudly owned by Yellow Seat
         </h2>
 
-        <a href="https://theseats.co.nz" target="_blank">
+        <!--<a href="https://theseats.co.nz" target="_blank">
           <Image
             id="logo"
             src={import("../assets/img/yellowseat-chair.png")}
@@ -99,18 +101,27 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
             class="h-auto w-20 object-cover"
             loading="eager"
           />
-        </a>
+        </a>-->
       </div>
 
-      <div class="max-w-3xl space-y-6 rounded-3xl bg-neutral-800 p-10">
-        <p
-          class="mx-auto max-w-5xl font-serif text-3xl font-medium text-balance text-white"
-        >
+      <div class="max-w-2xl space-y-6 bg-neutral-800 p-5">
+        <p class="font-serif text-2xl text-white">
           Yellow Seat was founded out of a love of cuisine, our passion for
           service, and a drive to excel in the industry. We take great pleasure
           in being able to produce almost any delectable dish you can think of
           and deliver it with unmatched service.
         </p>
+
+        <a href="https://theseats.co.nz" target="_blank" class="inline-flex">
+          <Image
+            id="logo"
+            src={import("../assets/img/yellowseat.png")}
+            width="350"
+            alt="Yellow Seat logo"
+            class="h-auto w-72 bg-white object-cover p-5"
+            loading="eager"
+          />
+        </a>
       </div>
     </div>
 

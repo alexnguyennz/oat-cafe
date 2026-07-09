@@ -243,19 +243,35 @@ export const CateringForm = () => {
           </Select.Trigger>
           <Select.Popover className="rounded-none text-lg text-white">
             <ListBox>
-              <ListBox.Item id="in-cafe" textValue="In-cafe">
+              <ListBox.Item
+                id="in-cafe"
+                textValue="In-cafe"
+                className="rounded-none"
+              >
                 In-cafe
                 <ListBox.ItemIndicator />
               </ListBox.Item>
-              <ListBox.Item id="whataitai" textValue="Whataitai">
+              <ListBox.Item
+                id="whataitai"
+                textValue="Whataitai"
+                className="rounded-none"
+              >
                 Whataitai
                 <ListBox.ItemIndicator />
               </ListBox.Item>
-              <ListBox.Item id="ngake" textValue="Ngake">
+              <ListBox.Item
+                id="ngake"
+                textValue="Ngake"
+                className="rounded-none"
+              >
                 Ngake
                 <ListBox.ItemIndicator />
               </ListBox.Item>
-              <ListBox.Item id="maitarangi" textValue="Maitarangi">
+              <ListBox.Item
+                id="maitarangi"
+                textValue="Maitarangi"
+                className="rounded-none"
+              >
                 Maitarangi
                 <ListBox.ItemIndicator />
               </ListBox.Item>
@@ -292,11 +308,19 @@ export const CateringForm = () => {
           </Select.Trigger>
           <Select.Popover className="rounded-none text-lg text-white">
             <ListBox>
-              <ListBox.Item id="in-cafe" textValue="In-cafe payment">
+              <ListBox.Item
+                id="in-cafe"
+                textValue="In-cafe payment"
+                className="rounded-none"
+              >
                 In-cafe payment
                 <ListBox.ItemIndicator />
               </ListBox.Item>
-              <ListBox.Item id="invoice" textValue="Invoice">
+              <ListBox.Item
+                id="invoice"
+                textValue="Invoice"
+                className="rounded-none"
+              >
                 Invoice
                 <ListBox.ItemIndicator />
               </ListBox.Item>
