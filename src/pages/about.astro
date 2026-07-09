@@ -92,33 +92,31 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
           Proudly owned by Yellow Seat
         </h2>
 
-        <!--<a href="https://theseats.co.nz" target="_blank">
-          <Image
-            id="logo"
-            src={import("../assets/img/yellowseat-chair.png")}
-            width="250"
-            alt="Yellow Seat logo"
-            class="h-auto w-20 object-cover"
-            loading="eager"
-          />
-        </a>-->
+        <Image
+          id="logo"
+          src={import("../assets/img/yellowseat-chair.png")}
+          width="250"
+          alt="Yellow Seat logo"
+          class="h-auto w-12 object-cover"
+          loading="eager"
+        />
       </div>
 
-      <div class="max-w-2xl space-y-6 bg-neutral-800 p-5">
-        <p class="font-serif text-2xl text-white">
+      <div class="max-w-xl bg-neutral-800">
+        <p class="p-5 font-serif text-2xl text-white">
           Yellow Seat was founded out of a love of cuisine, our passion for
           service, and a drive to excel in the industry. We take great pleasure
           in being able to produce almost any delectable dish you can think of
           and deliver it with unmatched service.
         </p>
 
-        <a href="https://theseats.co.nz" target="_blank" class="inline-flex">
+        <a href="https://theseats.co.nz" target="_blank" class="block w-full">
           <Image
             id="logo"
             src={import("../assets/img/yellowseat.png")}
-            width="350"
+            width="550"
             alt="Yellow Seat logo"
-            class="h-auto w-72 bg-white object-cover p-5"
+            class="block h-auto w-full bg-white object-cover p-5"
             loading="eager"
           />
         </a>
@@ -130,7 +128,7 @@ import { Gallery } from "@/components/pages/about/gallery.tsx";
       src={import("../assets/img/pages/about/proudly-owned.png")}
       width="1550"
       alt=""
-      class="absolute right-0 bottom-0 mx-auto h-auto w-1/2 max-w-[800px] object-contain"
+      class="absolute right-0 bottom-0 mx-auto h-auto w-1/2 max-w-200 object-contain"
       loading="eager"
     />
   </div>
